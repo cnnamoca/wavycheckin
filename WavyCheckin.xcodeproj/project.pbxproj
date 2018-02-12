@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3990B22B4659105148A39E57 /* Pods_WavyCheckin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C0CFA9D4D473533F2129A6 /* Pods_WavyCheckin.framework */; };
 		E615CEFA203228E900521F80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615CEF9203228E900521F80 /* AppDelegate.swift */; };
 		E615CEFC203228E900521F80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615CEFB203228E900521F80 /* ViewController.swift */; };
 		E615CEFF203228E900521F80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E615CEFD203228E900521F80 /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		550C915C8585EE118966F85D /* Pods-WavyCheckin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WavyCheckin.release.xcconfig"; path = "Pods/Target Support Files/Pods-WavyCheckin/Pods-WavyCheckin.release.xcconfig"; sourceTree = "<group>"; };
+		A4AB55CD7DC7A3ADB8B6B032 /* Pods-WavyCheckin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WavyCheckin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WavyCheckin/Pods-WavyCheckin.debug.xcconfig"; sourceTree = "<group>"; };
 		E615CEF6203228E900521F80 /* WavyCheckin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WavyCheckin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E615CEF9203228E900521F80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E615CEFB203228E900521F80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		E615CF03203228E900521F80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E615CF06203228E900521F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E615CF08203228E900521F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2C0CFA9D4D473533F2129A6 /* Pods_WavyCheckin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WavyCheckin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3990B22B4659105148A39E57 /* Pods_WavyCheckin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6FEECE5C344741F211699BB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2C0CFA9D4D473533F2129A6 /* Pods_WavyCheckin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9F9F8F6BA251704EBA7F7E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4AB55CD7DC7A3ADB8B6B032 /* Pods-WavyCheckin.debug.xcconfig */,
+				550C915C8585EE118966F85D /* Pods-WavyCheckin.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E615CEED203228E900521F80 = {
 			isa = PBXGroup;
 			children = (
 				E615CEF8203228E900521F80 /* WavyCheckin */,
 				E615CEF7203228E900521F80 /* Products */,
+				A9F9F8F6BA251704EBA7F7E7 /* Pods */,
+				6FEECE5C344741F211699BB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E615CF0B203228E900521F80 /* Build configuration list for PBXNativeTarget "WavyCheckin" */;
 			buildPhases = (
+				D049E5BC75CB6173A4E664F1 /* [CP] Check Pods Manifest.lock */,
 				E615CEF2203228E900521F80 /* Sources */,
 				E615CEF3203228E900521F80 /* Frameworks */,
 				E615CEF4203228E900521F80 /* Resources */,
+				192EB719AF1278E0B2CE65EA /* [CP] Embed Pods Frameworks */,
+				067C2B2032FE3D2199F594E6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,64 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		067C2B2032FE3D2199F594E6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WavyCheckin/Pods-WavyCheckin-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		192EB719AF1278E0B2CE65EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WavyCheckin/Pods-WavyCheckin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WavyCheckin/Pods-WavyCheckin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D049E5BC75CB6173A4E664F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WavyCheckin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E615CEF2203228E900521F80 /* Sources */ = {
@@ -276,6 +361,7 @@
 		};
 		E615CF0C203228E900521F80 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4AB55CD7DC7A3ADB8B6B032 /* Pods-WavyCheckin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +377,7 @@
 		};
 		E615CF0D203228E900521F80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 550C915C8585EE118966F85D /* Pods-WavyCheckin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
