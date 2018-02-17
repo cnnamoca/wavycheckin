@@ -14,6 +14,10 @@
 		E615CF02203228E900521F80 /* WavyCheckin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E615CF00203228E900521F80 /* WavyCheckin.xcdatamodeld */; };
 		E615CF04203228E900521F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E615CF03203228E900521F80 /* Assets.xcassets */; };
 		E615CF07203228E900521F80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E615CF05203228E900521F80 /* LaunchScreen.storyboard */; };
+		E615CF0F20323CC200521F80 /* EventsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E615CF0E20323CC200521F80 /* EventsList.storyboard */; };
+		E62DE0A6203805EB00CE418E /* GuestList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E62DE0A5203805EB00CE418E /* GuestList.storyboard */; };
+		E62DE0A8203810F100CE418E /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DE0A7203810F100CE418E /* EventsListViewController.swift */; };
+		E62DE0AD2038116600CE418E /* GuestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DE0AC2038116600CE418E /* GuestListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		E615CF03203228E900521F80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E615CF06203228E900521F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E615CF08203228E900521F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E615CF0E20323CC200521F80 /* EventsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsList.storyboard; sourceTree = "<group>"; };
+		E62DE0A5203805EB00CE418E /* GuestList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GuestList.storyboard; sourceTree = "<group>"; };
+		E62DE0A7203810F100CE418E /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
+		E62DE0AC2038116600CE418E /* GuestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuestListViewController.swift; path = "/Users/CARLITO/Desktop/iOS Apps/WavyCheckin/WavyCheckin/GuestList/GuestListViewController.swift"; sourceTree = "<absolute>"; };
 		F2C0CFA9D4D473533F2129A6 /* Pods_WavyCheckin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WavyCheckin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,14 +89,50 @@
 			isa = PBXGroup;
 			children = (
 				E615CEF9203228E900521F80 /* AppDelegate.swift */,
-				E615CEFB203228E900521F80 /* ViewController.swift */,
-				E615CEFD203228E900521F80 /* Main.storyboard */,
+				E62DE0A92038110100CE418E /* Main */,
+				E62DE0AA2038111600CE418E /* EventsList */,
+				E62DE0AB2038114E00CE418E /* GuestList */,
+				E62DE0AE2038117400CE418E /* Firebase */,
 				E615CF03203228E900521F80 /* Assets.xcassets */,
 				E615CF05203228E900521F80 /* LaunchScreen.storyboard */,
 				E615CF08203228E900521F80 /* Info.plist */,
 				E615CF00203228E900521F80 /* WavyCheckin.xcdatamodeld */,
 			);
 			path = WavyCheckin;
+			sourceTree = "<group>";
+		};
+		E62DE0A92038110100CE418E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E615CEFD203228E900521F80 /* Main.storyboard */,
+				E615CEFB203228E900521F80 /* ViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E62DE0AA2038111600CE418E /* EventsList */ = {
+			isa = PBXGroup;
+			children = (
+				E615CF0E20323CC200521F80 /* EventsList.storyboard */,
+				E62DE0A7203810F100CE418E /* EventsListViewController.swift */,
+			);
+			name = EventsList;
+			sourceTree = "<group>";
+		};
+		E62DE0AB2038114E00CE418E /* GuestList */ = {
+			isa = PBXGroup;
+			children = (
+				E62DE0A5203805EB00CE418E /* GuestList.storyboard */,
+				E62DE0AC2038116600CE418E /* GuestListViewController.swift */,
+			);
+			path = GuestList;
+			sourceTree = "<group>";
+		};
+		E62DE0AE2038117400CE418E /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Firebase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +200,8 @@
 				E615CF07203228E900521F80 /* LaunchScreen.storyboard in Resources */,
 				E615CF04203228E900521F80 /* Assets.xcassets in Resources */,
 				E615CEFF203228E900521F80 /* Main.storyboard in Resources */,
+				E62DE0A6203805EB00CE418E /* GuestList.storyboard in Resources */,
+				E615CF0F20323CC200521F80 /* EventsList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +272,9 @@
 			files = (
 				E615CEFC203228E900521F80 /* ViewController.swift in Sources */,
 				E615CEFA203228E900521F80 /* AppDelegate.swift in Sources */,
+				E62DE0AD2038116600CE418E /* GuestListViewController.swift in Sources */,
 				E615CF02203228E900521F80 /* WavyCheckin.xcdatamodeld in Sources */,
+				E62DE0A8203810F100CE418E /* EventsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
