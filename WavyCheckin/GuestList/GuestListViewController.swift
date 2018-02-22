@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GuestListViewController: UIViewController {
+class GuestListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

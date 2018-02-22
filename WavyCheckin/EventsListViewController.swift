@@ -16,9 +16,25 @@ class EventsAndListsViewController: UITableViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //if admin, perform segue else display alert view that will tell users to add names
+        
+        //regular user
+        let alertController = UIAlertController(title: "Add Guest", message: "Please add guest name", preferredStyle: .alert)
+        
+        alertController.addTextField { (nameTextField) in
+            nameTextField.placeholder = "Guest Name"
+        }
+        
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (saveAction) in
+            //perform save function
+        }
+        alertController.addAction(OKAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 
 
