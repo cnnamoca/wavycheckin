@@ -11,19 +11,27 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var addGuestButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        loginButton.isHidden = true
+    }
+    
+    //add shake gesture to add login
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            UIView.animate(withDuration: 2,
+                           delay: 0,
+                           options: .curveLinear,
+                           animations: {
+                            self.loginButton.isHidden = false
+            },
+                           completion: nil)
+        }
     }
     
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 

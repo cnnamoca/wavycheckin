@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,39 +20,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aab-B8-Qka">
+                                <rect key="frame" x="131.5" y="629" width="112.5" height="30"/>
+                                <state key="normal" title="Admin Login"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HgC-uy-gYE">
+                                <rect key="frame" x="16" y="225" width="343" height="217"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HgC-uy-gYE" secondAttribute="height" multiplier="49:31" id="R8x-wh-rpe"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dK-hS-SJh">
-                                <rect key="frame" x="93.5" y="318.5" width="187.5" height="30"/>
+                                <rect key="frame" x="131.5" y="591" width="112.5" height="30"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Add Guests"/>
                                 <connections>
                                     <segue destination="J07-KL-a9k" kind="presentation" id="0aj-Pi-MIZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aab-B8-Qka">
-                                <rect key="frame" x="93.5" y="617" width="187.5" height="30"/>
-                                <state key="normal" title="Admin Login"/>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HgC-uy-gYE">
-                                <rect key="frame" x="16" y="78" width="343" height="218"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7dK-hS-SJh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="7om-wm-bhY"/>
-                            <constraint firstItem="7dK-hS-SJh" firstAttribute="top" secondItem="HgC-uy-gYE" secondAttribute="bottom" constant="22.5" id="7vi-a6-KV9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aab-B8-Qka" secondAttribute="bottom" constant="20" id="GAF-0k-ds6"/>
-                            <constraint firstItem="7dK-hS-SJh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cmN-A1-x6h"/>
-                            <constraint firstItem="HgC-uy-gYE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="58" id="eRn-eH-fvI"/>
-                            <constraint firstItem="7dK-hS-SJh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="emw-mk-4Ad"/>
-                            <constraint firstItem="aab-B8-Qka" firstAttribute="width" secondItem="7dK-hS-SJh" secondAttribute="width" id="f9t-ZD-mfo"/>
-                            <constraint firstItem="aab-B8-Qka" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ngQ-5K-8cu"/>
-                            <constraint firstItem="aab-B8-Qka" firstAttribute="height" secondItem="7dK-hS-SJh" secondAttribute="height" id="nh9-dx-g6k"/>
-                            <constraint firstItem="HgC-uy-gYE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="v7E-db-Pqu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HgC-uy-gYE" secondAttribute="trailing" constant="16" id="wpl-jB-eeu"/>
+                            <constraint firstItem="aab-B8-Qka" firstAttribute="top" secondItem="7dK-hS-SJh" secondAttribute="bottom" constant="8" id="4e4-LW-vTe"/>
+                            <constraint firstItem="aab-B8-Qka" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9vB-zY-asx"/>
+                            <constraint firstItem="HgC-uy-gYE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rse-3g-Ybp"/>
+                            <constraint firstItem="7dK-hS-SJh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gJ9-n2-IzU"/>
+                            <constraint firstItem="HgC-uy-gYE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="iMz-bW-aS3"/>
+                            <constraint firstItem="HgC-uy-gYE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mbp-sL-vAK"/>
+                            <constraint firstItem="aab-B8-Qka" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="mh5-6O-c3J"/>
+                            <constraint firstItem="7dK-hS-SJh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="v4Y-Jl-bwC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HgC-uy-gYE" secondAttribute="trailing" constant="16" id="vXM-VS-XSa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aab-B8-Qka" secondAttribute="bottom" constant="8" id="zmY-Ew-d0f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="loginButton" destination="aab-B8-Qka" id="jVn-3v-6AU"/>
+                        <outlet property="addGuestButton" destination="7dK-hS-SJh" id="QPy-Bq-qlp"/>
+                        <outlet property="loginButton" destination="aab-B8-Qka" id="1od-tr-TRS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
