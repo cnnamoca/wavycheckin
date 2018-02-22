@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "93F1F654147BC897A56D17FB31670308"
+               BlueprintIdentifier = "2AE8A9BE54CEFB47541F4B493B1945F1"
                BuildableName = "Pods_WavyCheckin.framework"
                BlueprintName = "Pods-WavyCheckin"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "93F1F654147BC897A56D17FB31670308"
+            BlueprintIdentifier = "2AE8A9BE54CEFB47541F4B493B1945F1"
             BuildableName = "Pods_WavyCheckin.framework"
             BlueprintName = "Pods-WavyCheckin"
             ReferencedContainer = "container:Pods.xcodeproj">

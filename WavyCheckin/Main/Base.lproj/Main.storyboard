@@ -23,6 +23,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aab-B8-Qka">
                                 <rect key="frame" x="131.5" y="629" width="112.5" height="30"/>
                                 <state key="normal" title="Admin Login"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4vc-Rp-WKF"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HgC-uy-gYE">
                                 <rect key="frame" x="16" y="225" width="343" height="217"/>
@@ -63,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
-        <!--EventsAndLists-->
+        <!--EventsList-->
         <scene sceneID="rML-NZ-jqB">
             <objects>
-                <viewControllerPlaceholder storyboardName="EventsAndLists" id="J07-KL-a9k" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="EventsList" id="J07-KL-a9k" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="reu-8c-hG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="721" y="132"/>

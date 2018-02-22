@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Events List View Controller-->
+        <!--Events And Lists View Controller-->
         <scene sceneID="lXG-eq-NYJ">
             <objects>
-                <tableViewController id="Bh5-VT-fq9" customClass="EventsListViewController" customModule="WavyCheckin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Bh5-VT-fq9" customClass="EventsAndListsViewController" customModule="WavyCheckin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ySr-Pn-bJ2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,12 +59,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imd-6X-38n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799.20000000000005" y="155.17241379310346"/>
+            <point key="canvasLocation" x="455" y="154"/>
         </scene>
-        <!--Eve-->
+        <!--Navigation Controller-->
         <scene sceneID="3ed-s9-gwE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a2k-ZI-nUN" customClass="eve" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a2k-ZI-nUN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZNv-Q6-R3e">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

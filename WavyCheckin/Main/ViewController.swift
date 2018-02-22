@@ -17,20 +17,29 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         loginButton.isHidden = true
+        loginButton.isEnabled = false
+        addGuestButton.layer.cornerRadius = addGuestButton.frame.width / 2
     }
     
     //add shake gesture to add login
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            UIView.animate(withDuration: 2,
+            UIView.animate(withDuration: 1,
                            delay: 0,
                            options: .curveLinear,
                            animations: {
                             self.loginButton.isHidden = false
+                            self.loginButton.isEnabled = true
             },
                            completion: nil)
         }
     }
+    
+    //add alert view for admin login
+    @IBAction func loginAction(_ sender: UIButton) {
+        //
+    }
+    
     
     
 }
