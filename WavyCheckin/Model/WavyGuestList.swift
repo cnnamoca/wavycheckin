@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseDatabase
 
-struct WavyGuestList {
+struct Guest {
     
     let key: String!
     let content: String!

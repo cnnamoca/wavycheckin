@@ -16,8 +16,9 @@ class EventsAndListsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dbRef = Database.database().reference().child("WavyDate")
 
-        dbRef = Database.database().reference().child("WavyDates")
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,9 +43,9 @@ class EventsAndListsViewController: UITableViewController {
         
         alert.addButton("Add Guest") {
             if let guestName = txt.text {
-                let checkinRef = self.dbRef.child("Guests")
                 
-                checkinRef.setValue(guestName)
+                let guestsRef = self.dbRef.child("Guests").childByAutoId()
+                guestsRef.setValue(guestName)
             }
         }
       
