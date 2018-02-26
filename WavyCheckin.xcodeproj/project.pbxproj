@@ -17,9 +17,8 @@
 		E615CF0F20323CC200521F80 /* EventsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E615CF0E20323CC200521F80 /* EventsList.storyboard */; };
 		E62DE0A6203805EB00CE418E /* GuestList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E62DE0A5203805EB00CE418E /* GuestList.storyboard */; };
 		E62DE0A8203810F100CE418E /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DE0A7203810F100CE418E /* EventsListViewController.swift */; };
-		E62DE0AD2038116600CE418E /* GuestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DE0AC2038116600CE418E /* GuestListViewController.swift */; };
 		E62DE0B0203F313500CE418E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DE0AF203F313500CE418E /* User.swift */; };
-		E62DE0B2203F35B700CE418E /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DE0B1203F35B700CE418E /* Guest.swift */; };
+		E62DE0B2203F35B700CE418E /* WavyGuestList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DE0B1203F35B700CE418E /* WavyGuestList.swift */; };
 		E67D30B720448960008502E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E67D30B620448960008502E2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -37,9 +36,8 @@
 		E615CF0E20323CC200521F80 /* EventsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsList.storyboard; sourceTree = "<group>"; };
 		E62DE0A5203805EB00CE418E /* GuestList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GuestList.storyboard; sourceTree = "<group>"; };
 		E62DE0A7203810F100CE418E /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
-		E62DE0AC2038116600CE418E /* GuestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuestListViewController.swift; path = "/Users/CARLITO/Desktop/iOS Apps/WavyCheckin/WavyCheckin/GuestList/GuestListViewController.swift"; sourceTree = "<absolute>"; };
 		E62DE0AF203F313500CE418E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E62DE0B1203F35B700CE418E /* Guest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
+		E62DE0B1203F35B700CE418E /* WavyGuestList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavyGuestList.swift; sourceTree = "<group>"; };
 		E67D30B620448960008502E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2C0CFA9D4D473533F2129A6 /* Pods_WavyCheckin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WavyCheckin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				E62DE0A5203805EB00CE418E /* GuestList.storyboard */,
-				E62DE0AC2038116600CE418E /* GuestListViewController.swift */,
 			);
 			path = GuestList;
 			sourceTree = "<group>";
@@ -147,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				E62DE0AF203F313500CE418E /* User.swift */,
-				E62DE0B1203F35B700CE418E /* Guest.swift */,
+				E62DE0B1203F35B700CE418E /* WavyGuestList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,17 +245,29 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WavyCheckin/Pods-WavyCheckin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -295,10 +304,9 @@
 				E615CEFC203228E900521F80 /* ViewController.swift in Sources */,
 				E615CEFA203228E900521F80 /* AppDelegate.swift in Sources */,
 				E62DE0B0203F313500CE418E /* User.swift in Sources */,
-				E62DE0AD2038116600CE418E /* GuestListViewController.swift in Sources */,
 				E615CF02203228E900521F80 /* WavyCheckin.xcdatamodeld in Sources */,
 				E62DE0A8203810F100CE418E /* EventsListViewController.swift in Sources */,
-				E62DE0B2203F35B700CE418E /* Guest.swift in Sources */,
+				E62DE0B2203F35B700CE418E /* WavyGuestList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +448,7 @@
 				DEVELOPMENT_TEAM = FBYQCX339P;
 				INFOPLIST_FILE = WavyCheckin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = carlonamoca.WavyCheckin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wavycheckin.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -456,7 +464,7 @@
 				DEVELOPMENT_TEAM = FBYQCX339P;
 				INFOPLIST_FILE = WavyCheckin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = carlonamoca.WavyCheckin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wavycheckin.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

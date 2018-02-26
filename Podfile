@@ -7,6 +7,7 @@ target 'WavyCheckin' do
 
   # Pods for WavyCheckin
   pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'SCLAlertView'

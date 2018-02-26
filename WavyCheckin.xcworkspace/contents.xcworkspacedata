@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/CARLITO/Desktop/iOS Apps/WavyCheckin/WavyCheckin/GuestList/GuestListViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:WavyCheckin.xcodeproj">
    </FileRef>
    <FileRef

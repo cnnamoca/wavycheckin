@@ -8,13 +8,16 @@
 
 import UIKit
 import SCLAlertView
+import Firebase
 
 class EventsAndListsViewController: UITableViewController {
+    
+    var dbRef:DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // load list from firebase
+        dbRef = Database.database().reference().child("WavyDates")
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,12 +38,22 @@ class EventsAndListsViewController: UITableViewController {
         //if admin, perform segue else display alert view that will tell users to add names
         
         let alert = SCLAlertView()
-        alert.addTextField("Guest Name") // weird warning
+        let txt = alert.addTextField("Guest Name")
+        
+        alert.addButton("Add Guest") {
+            if let guestName = txt.text {
+                let checkinRef = self.dbRef.child("Guests")
+                
+                checkinRef.setValue(guestName)
+            }
+        }
+      
         
         alert.showEdit("Add Guests", subTitle: "Add Guest Names")
     
         
     }
+
 
 
 }
