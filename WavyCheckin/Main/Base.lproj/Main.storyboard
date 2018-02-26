@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dK-hS-SJh">
-                                <rect key="frame" x="131.5" y="591" width="112.5" height="30"/>
+                                <rect key="frame" x="93" y="591" width="189" height="30"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Add Guests"/>
                                 <connections>
@@ -44,14 +44,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aab-B8-Qka" firstAttribute="top" secondItem="7dK-hS-SJh" secondAttribute="bottom" constant="8" id="4e4-LW-vTe"/>
                             <constraint firstItem="aab-B8-Qka" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9vB-zY-asx"/>
+                            <constraint firstItem="7dK-hS-SJh" firstAttribute="top" secondItem="HgC-uy-gYE" secondAttribute="bottom" constant="149" id="QFM-Fw-AWh"/>
                             <constraint firstItem="HgC-uy-gYE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rse-3g-Ybp"/>
-                            <constraint firstItem="7dK-hS-SJh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gJ9-n2-IzU"/>
                             <constraint firstItem="HgC-uy-gYE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="iMz-bW-aS3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7dK-hS-SJh" secondAttribute="trailing" constant="93" id="kta-9e-Tzx"/>
                             <constraint firstItem="HgC-uy-gYE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mbp-sL-vAK"/>
                             <constraint firstItem="aab-B8-Qka" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="mh5-6O-c3J"/>
-                            <constraint firstItem="7dK-hS-SJh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="v4Y-Jl-bwC"/>
+                            <constraint firstItem="7dK-hS-SJh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="93" id="oVy-LK-UgK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HgC-uy-gYE" secondAttribute="trailing" constant="16" id="vXM-VS-XSa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aab-B8-Qka" secondAttribute="bottom" constant="8" id="zmY-Ew-d0f"/>
                         </constraints>

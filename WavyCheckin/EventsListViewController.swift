@@ -7,34 +7,39 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class EventsAndListsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // load list from firebase
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //if admin, perform segue else display alert view that will tell users to add names
         
-        //regular user
-        let alertController = UIAlertController(title: "Add Guest", message: "Please add guest name", preferredStyle: .alert)
+        let alert = SCLAlertView()
+        alert.addTextField("Guest Name") // weird warning
         
-        alertController.addTextField { (nameTextField) in
-            nameTextField.placeholder = "Guest Name"
-        }
+        alert.showEdit("Add Guests", subTitle: "Add Guest Names")
+    
         
-        let OKAction = UIAlertAction(title: "OK", style: .default) { (saveAction) in
-            //perform save function
-        }
-        alertController.addAction(OKAction)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
     }
 
 
