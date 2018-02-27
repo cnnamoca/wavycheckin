@@ -13,7 +13,7 @@ import Firebase
 class EventsAndListsViewController: UITableViewController {
     
     var dbRef:DatabaseReference!
-
+    @IBOutlet weak var backgroundImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,13 +21,23 @@ class EventsAndListsViewController: UITableViewController {
 
     }
     
+    @IBAction func backAction(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
         
+//        if indexPath.row%2==0{
+//            cell.backgroundColor = .white
+//        } else {
+//            cell.backgroundColor = .gray
+//        }
         return cell
     }
     

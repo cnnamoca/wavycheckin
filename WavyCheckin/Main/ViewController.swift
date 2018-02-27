@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         
         loginButton.isHidden = true
         loginButton.isEnabled = false
-        //addGuestButton.layer.cornerRadius = addGuestButton.frame.width / 2
+        addGuestButton.layer.cornerRadius = addGuestButton.frame.height / 2
     }
     
     //add shake gesture to add login

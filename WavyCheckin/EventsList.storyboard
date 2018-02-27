@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,11 +38,18 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sidekick" translatesAutoresizingMaskIntoConstraints="NO" id="pwM-CN-emP" userLabel="BackgroundView">
+                                            <rect key="frame" x="16" y="11" width="343" height="178"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Tqt-38-b7e" firstAttribute="centerY" secondItem="01T-cR-BLQ" secondAttribute="centerY" id="7R6-E9-LGY"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pwM-CN-emP" secondAttribute="trailing" id="Eqj-zF-2Qy"/>
                                         <constraint firstItem="PCW-9y-lQZ" firstAttribute="centerX" secondItem="01T-cR-BLQ" secondAttribute="centerX" id="FxJ-ya-Z4Z"/>
                                         <constraint firstItem="PCW-9y-lQZ" firstAttribute="top" secondItem="Tqt-38-b7e" secondAttribute="bottom" constant="8" id="Q5L-vL-Jwo"/>
+                                        <constraint firstItem="pwM-CN-emP" firstAttribute="top" secondItem="01T-cR-BLQ" secondAttribute="topMargin" id="QWD-gs-7J5"/>
+                                        <constraint firstItem="pwM-CN-emP" firstAttribute="leading" secondItem="01T-cR-BLQ" secondAttribute="leadingMargin" id="Yh2-QJ-wC2"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="pwM-CN-emP" secondAttribute="bottom" id="he8-ps-ohl"/>
                                         <constraint firstItem="Tqt-38-b7e" firstAttribute="centerX" secondItem="01T-cR-BLQ" secondAttribute="centerX" id="pRg-xf-Kov"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -53,7 +61,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Q89-fH-vom">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="Cha-Lt-gkm"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Cha-Lt-gkm">
+                            <connections>
+                                <action selector="backAction:" destination="Bh5-VT-fq9" id="0Ei-AB-KIc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Event" id="qJF-Dr-pb8"/>
                     </navigationItem>
                 </tableViewController>
@@ -80,4 +92,7 @@
             <point key="canvasLocation" x="-286" y="155"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sidekick" width="1334" height="1010"/>
+    </resources>
 </document>
