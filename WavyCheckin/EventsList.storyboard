@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,19 +37,19 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sidekick" translatesAutoresizingMaskIntoConstraints="NO" id="pwM-CN-emP" userLabel="BackgroundView">
-                                            <rect key="frame" x="16" y="11" width="343" height="178"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sidekick" translatesAutoresizingMaskIntoConstraints="NO" id="pwM-CN-emP" userLabel="BackgroundView">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="pwM-CN-emP" firstAttribute="leading" secondItem="01T-cR-BLQ" secondAttribute="leading" id="4kB-Tw-vWL"/>
                                         <constraint firstItem="Tqt-38-b7e" firstAttribute="centerY" secondItem="01T-cR-BLQ" secondAttribute="centerY" id="7R6-E9-LGY"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="pwM-CN-emP" secondAttribute="trailing" id="Eqj-zF-2Qy"/>
                                         <constraint firstItem="PCW-9y-lQZ" firstAttribute="centerX" secondItem="01T-cR-BLQ" secondAttribute="centerX" id="FxJ-ya-Z4Z"/>
                                         <constraint firstItem="PCW-9y-lQZ" firstAttribute="top" secondItem="Tqt-38-b7e" secondAttribute="bottom" constant="8" id="Q5L-vL-Jwo"/>
-                                        <constraint firstItem="pwM-CN-emP" firstAttribute="top" secondItem="01T-cR-BLQ" secondAttribute="topMargin" id="QWD-gs-7J5"/>
-                                        <constraint firstItem="pwM-CN-emP" firstAttribute="leading" secondItem="01T-cR-BLQ" secondAttribute="leadingMargin" id="Yh2-QJ-wC2"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="pwM-CN-emP" secondAttribute="bottom" id="he8-ps-ohl"/>
+                                        <constraint firstAttribute="trailing" secondItem="pwM-CN-emP" secondAttribute="trailing" id="f9s-hZ-gN4"/>
+                                        <constraint firstAttribute="bottom" secondItem="pwM-CN-emP" secondAttribute="bottom" id="kyM-JB-bvU"/>
                                         <constraint firstItem="Tqt-38-b7e" firstAttribute="centerX" secondItem="01T-cR-BLQ" secondAttribute="centerX" id="pRg-xf-Kov"/>
+                                        <constraint firstItem="pwM-CN-emP" firstAttribute="top" secondItem="01T-cR-BLQ" secondAttribute="top" id="xJE-rX-jfk"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -71,7 +70,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imd-6X-38n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="455" y="154"/>
+            <point key="canvasLocation" x="453.60000000000002" y="152.47376311844079"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ed-s9-gwE">
