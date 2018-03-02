@@ -35,7 +35,7 @@ class EventsAndListsViewController: UITableViewController {
         
         //LOAD EVENTS
         
-    }
+    }  
     
     @IBAction func backAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

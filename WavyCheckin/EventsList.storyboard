@@ -6,14 +6,20 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Courier.ttc">
+            <string>Courier</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Events And Lists View Controller-->
         <scene sceneID="lXG-eq-NYJ">
             <objects>
                 <tableViewController id="Bh5-VT-fq9" customClass="EventsAndListsViewController" customModule="WavyCheckin" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ySr-Pn-bJ2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ySr-Pn-bJ2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -22,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8yB-N7-sOQ" id="01T-cR-BLQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqt-38-b7e" userLabel="Event Name Label">
@@ -65,7 +71,11 @@
                                 <action selector="backAction:" destination="Bh5-VT-fq9" id="0Ei-AB-KIc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add Event" id="qJF-Dr-pb8"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add Event" id="qJF-Dr-pb8">
+                            <connections>
+                                <segue destination="Iil-e7-S1b" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="SQ8-a2-GdW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addEventButton" destination="qJF-Dr-pb8" id="2cH-H8-Qyc"/>
@@ -74,6 +84,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imd-6X-38n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="453.60000000000002" y="152.47376311844079"/>
+        </scene>
+        <!--Add Event Pop Up View Controller-->
+        <scene sceneID="ebs-xR-iag">
+            <objects>
+                <viewController id="Iil-e7-S1b" customClass="AddEventPopUpViewController" customModule="WavyCheckin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aEa-2g-0GH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVW-EV-Zt6">
+                                <rect key="frame" x="42" y="160" width="291" height="367"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EYA-vY-6sz">
+                                        <rect key="frame" x="5" y="10" width="281" height="347"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PC3-PV-Fd8">
+                                                <rect key="frame" x="0.0" y="0.0" width="281" height="16.5"/>
+                                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bWm-8b-5Db">
+                                                <rect key="frame" x="0.0" y="26.5" width="281" height="206"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="541649218.83148503">
+                                                    <!--2018-03-02 02:06:58 +0000-->
+                                                </date>
+                                            </datePicker>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Event Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LwD-tY-3Gc">
+                                                <rect key="frame" x="0.0" y="242.5" width="281" height="29"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEd-r3-IGk">
+                                                <rect key="frame" x="0.0" y="281.5" width="281" height="28.5"/>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="saveAction:" destination="Iil-e7-S1b" eventType="touchUpInside" id="DJX-VP-eSB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8R-eD-E1q">
+                                                <rect key="frame" x="0.0" y="320" width="281" height="27"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelAction:" destination="Iil-e7-S1b" eventType="touchUpInside" id="FaT-dD-kmq"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="EYA-vY-6sz" firstAttribute="leading" secondItem="HVW-EV-Zt6" secondAttribute="leading" constant="5" id="0Ri-RG-KCh"/>
+                                    <constraint firstAttribute="trailing" secondItem="EYA-vY-6sz" secondAttribute="trailing" constant="5" id="B1f-vj-X46"/>
+                                    <constraint firstItem="EYA-vY-6sz" firstAttribute="top" secondItem="HVW-EV-Zt6" secondAttribute="top" constant="10" id="hig-cP-xkG"/>
+                                    <constraint firstAttribute="bottom" secondItem="EYA-vY-6sz" secondAttribute="bottom" constant="10" id="wXX-7V-BKu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="n4D-Hb-Gp9" firstAttribute="trailing" secondItem="HVW-EV-Zt6" secondAttribute="trailing" constant="42" id="0Zq-P1-mLH"/>
+                            <constraint firstItem="HVW-EV-Zt6" firstAttribute="leading" secondItem="n4D-Hb-Gp9" secondAttribute="leading" constant="42" id="4xy-Dc-Rl8"/>
+                            <constraint firstItem="HVW-EV-Zt6" firstAttribute="top" secondItem="n4D-Hb-Gp9" secondAttribute="top" constant="140" id="Hhh-4K-xZA"/>
+                            <constraint firstItem="n4D-Hb-Gp9" firstAttribute="bottom" secondItem="HVW-EV-Zt6" secondAttribute="bottom" constant="140" id="ekt-KK-G8V"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="n4D-Hb-Gp9"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="bWm-8b-5Db" id="79z-7U-rav"/>
+                        <outlet property="popUpView" destination="HVW-EV-Zt6" id="YyC-SJ-qO1"/>
+                        <outlet property="saveButton" destination="YEd-r3-IGk" id="gB1-J1-x60"/>
+                        <outlet property="textField" destination="LwD-tY-3Gc" id="lme-4d-4sc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aUv-Fr-CXY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1325.5999999999999" y="151.57421289355324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ed-s9-gwE">
