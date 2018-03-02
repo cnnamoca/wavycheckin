@@ -11,31 +11,11 @@ import FirebaseDatabase
 
 struct WavyEvent {
     
+    let name: String!
     let key: String!
     let date: Date!
     let guests: [String]!
     let itemRef: DatabaseReference?
     
-    init (date:Date, key:String = "") {
-        self.key = key
-        self.date = date
-        self.itemRef = nil
-    }
     
-//    init(snapshot: DataSnapshot) {
-//        key = snapshot.key
-//        itemRef = snapshot.ref
-//
-//        if let dict = snapshot.value as? NSDictionary, let guestName = dict["content"] as? String{
-//            content = guestName
-//        }else {
-//            content = ""
-//        }
-//
-//        if let dict = snapshot.value as? NSDictionary, let wavyUser = dict["addedByUser"] as? String {
-//            addedByUser = wavyUser
-//        }else {
-//            addedByUser = ""
-//        }
-//    }
 }

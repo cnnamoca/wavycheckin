@@ -20,7 +20,7 @@
 		E62DE0B0203F313500CE418E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DE0AF203F313500CE418E /* User.swift */; };
 		E62DE0B2203F35B700CE418E /* WavyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DE0B1203F35B700CE418E /* WavyEvent.swift */; };
 		E67D30B720448960008502E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E67D30B620448960008502E2 /* GoogleService-Info.plist */; };
-		E67D30BB20478DBB008502E2 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67D30BA20478DBB008502E2 /* Admin.swift */; };
+		E6806B352048C71B005FF5AC /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6806B342048C71B005FF5AC /* EventManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,7 @@
 		E62DE0AF203F313500CE418E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E62DE0B1203F35B700CE418E /* WavyEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavyEvent.swift; sourceTree = "<group>"; };
 		E67D30B620448960008502E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E67D30BA20478DBB008502E2 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
+		E6806B342048C71B005FF5AC /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		F2C0CFA9D4D473533F2129A6 /* Pods_WavyCheckin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WavyCheckin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -147,7 +147,7 @@
 			children = (
 				E62DE0AF203F313500CE418E /* User.swift */,
 				E62DE0B1203F35B700CE418E /* WavyEvent.swift */,
-				E67D30BA20478DBB008502E2 /* Admin.swift */,
+				E6806B342048C71B005FF5AC /* EventManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,10 +304,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6806B352048C71B005FF5AC /* EventManager.swift in Sources */,
 				E615CEFC203228E900521F80 /* ViewController.swift in Sources */,
 				E615CEFA203228E900521F80 /* AppDelegate.swift in Sources */,
 				E62DE0B0203F313500CE418E /* User.swift in Sources */,
-				E67D30BB20478DBB008502E2 /* Admin.swift in Sources */,
 				E615CF02203228E900521F80 /* WavyCheckin.xcdatamodeld in Sources */,
 				E62DE0A8203810F100CE418E /* EventsListViewController.swift in Sources */,
 				E62DE0B2203F35B700CE418E /* WavyEvent.swift in Sources */,

@@ -12,13 +12,29 @@ import Firebase
 
 class EventsAndListsViewController: UITableViewController {
     
+    var eventsArr = [WavyEvent]()
     var dbRef:DatabaseReference!
+    
+    @IBOutlet weak var addEventButton: UIBarButtonItem!
     @IBOutlet weak var backgroundImageView: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dbRef = Database.database().reference().child("WavyDate")
-
+        dbRef = Database.database().reference().child("WavyEvents")
+        
+        //CHECK IF ADMIN
+        if Auth.auth().currentUser == nil {
+            self.addEventButton.isEnabled = false
+            self.addEventButton.tintColor = .clear
+            print("NO ADMIN DETECTED")
+        } else {
+            self.addEventButton.tintColor = .black
+            print("ADMIN IS LOGGED IN")
+        }
+        
+        //LOAD EVENTS
+        
     }
     
     @IBAction func backAction(_ sender: UIBarButtonItem) {
@@ -27,17 +43,12 @@ class EventsAndListsViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return eventsArr.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
         
-//        if indexPath.row%2==0{
-//            cell.backgroundColor = .white
-//        } else {
-//            cell.backgroundColor = .gray
-//        }
         return cell
     }
     
@@ -46,24 +57,25 @@ class EventsAndListsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //if admin, perform segue else display alert view that will tell users to add names
-        
-        let alert = SCLAlertView()
-        let txt = alert.addTextField("Guest Name")
-        
-        alert.addButton("Add Guest") {
-            if let guestName = txt.text {
-                
-                let guestsRef = self.dbRef.child("Guests").childByAutoId()
-                guestsRef.setValue(guestName)
+        if Auth.auth().currentUser == nil {
+            let alert = SCLAlertView()
+            let txt = alert.addTextField("Guest Name")
+            
+            alert.addButton("Add Guest") {
+                if let guestName = txt.text {
+                    
+                    let guestsRef = self.dbRef.child("Guests").childByAutoId()
+                    guestsRef.setValue(guestName)
+                }
             }
+            
+            
+            alert.showEdit("Add Guests", subTitle: "Add Guest Names")
+        } else {
+            //go to guestlist edit as admin
         }
-      
-        
-        alert.showEdit("Add Guests", subTitle: "Add Guest Names")
-    
-        
     }
+
 
 
 

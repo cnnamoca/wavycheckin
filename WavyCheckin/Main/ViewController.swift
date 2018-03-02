@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import SCLAlertView
+import Firebase
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var addGuestButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +38,32 @@ class ViewController: UIViewController {
         }
     }
     
-    //add alert view for admin login
     @IBAction func loginAction(_ sender: UIButton) {
-        //
+        let alert = SCLAlertView()
+        let emailtxt = alert.addTextField("email")
+        let passtxt = alert.addTextField("password")
+        
+        alert.addButton("Login") {
+            guard let _ = emailtxt.text, let _ = passtxt.text else {
+                SCLAlertView().showError("Whoops!", subTitle: "Please Fill Out All Required Fields")
+                return
+            }
+            
+            Auth.auth().signIn(withEmail: emailtxt.text!,
+                                        password: passtxt.text!,
+                                        completion: { (user, err) in
+                                            if (err == nil) {
+//                                                let curUser = Auth.auth().currentUser
+                                                
+                                                print("LOGIN SUCCESSFUL")
+                                            } else {
+                                                SCLAlertView().showError("Whoops!", subTitle: "Your email or password was filled in incorrectly ")
+                                            }
+            })
+        }
+        
+        alert.showEdit("Admin Login", subTitle: "Please Enter Credentials")
+            
     }
     
     

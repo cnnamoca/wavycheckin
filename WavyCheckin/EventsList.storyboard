@@ -67,6 +67,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Event" id="qJF-Dr-pb8"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addEventButton" destination="qJF-Dr-pb8" id="2cH-H8-Qyc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imd-6X-38n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

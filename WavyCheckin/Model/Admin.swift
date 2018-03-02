@@ -7,25 +7,17 @@
 //
 
 import Foundation
+import FirebaseAuth
 
-class Admin: NSObject, NSCoding {
+struct Admin{
     
     var username: String
     var password: String
-    var isLoggedIn: Bool
     var uid: String
     
-    init(name: String, password: String, uid: String) {
-        self.username = name
-        self.password = password
-        self.uid = uid
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        <#code#>
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        <#code#>
+    init(userData: User) {
+        uid = userData.uid
+        
+        if let mail = userData.providerData
     }
 }
