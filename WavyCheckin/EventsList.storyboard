@@ -43,7 +43,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sidekick" translatesAutoresizingMaskIntoConstraints="NO" id="pwM-CN-emP" userLabel="BackgroundView">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pwM-CN-emP" userLabel="BackgroundView">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                         </imageView>
                                     </subviews>
@@ -182,7 +182,4 @@
             <point key="canvasLocation" x="-286" y="155"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="sidekick" width="1334" height="1010"/>
-    </resources>
 </document>

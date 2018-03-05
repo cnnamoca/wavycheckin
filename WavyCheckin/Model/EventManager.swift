@@ -24,7 +24,7 @@ class EventsManager: NSObject {
         Database.database().reference().child(event.name).setValue(eventDict)
     }
     
-    class func readEvents() {
+    class func loadEvents() {
         Database.database().reference().child("Events").observe(.value) { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else {
