@@ -22,6 +22,7 @@ class EventsAndListsViewController: UITableViewController {
         super.viewDidLoad()
         
         dbRef = Database.database().reference().child("WavyEvents")
+        tableViewSetup()
         
         //CHECK IF ADMIN
         if Auth.auth().currentUser == nil {
@@ -35,7 +36,22 @@ class EventsAndListsViewController: UITableViewController {
         
         //LOAD EVENTS
         
-    }  
+    }
+    
+    //SETUP METHODS
+    func tableViewSetup() {
+        let rect = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height)
+        let label = UILabel(frame: rect)
+        tableView.addSubview(label)
+        label.text = "🌊 No WAVY Events Right Now 🌊"
+        label.textColor = .gray
+        label.textAlignment = .center
+        tableView.backgroundColor = .black
+        
+        if tableView.numberOfRows(inSection: 0) > 0 {
+            label.isHidden = true
+        }
+    }
     
     @IBAction func backAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
