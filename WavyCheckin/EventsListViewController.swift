@@ -14,15 +14,18 @@ class EventsAndListsViewController: UITableViewController {
     
     var eventsArr = [WavyEvent]()
     var dbRef:DatabaseReference!
+    var label = UILabel()
     
     @IBOutlet weak var addEventButton: UIBarButtonItem!
     @IBOutlet weak var backgroundImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         dbRef = Database.database().reference().child("WavyEvents")
-        tableViewSetup()
+//        tableViewSetup()
+        
+//        EventsManager.loadEvents()
         
         //CHECK IF ADMIN
         if Auth.auth().currentUser == nil {
@@ -33,26 +36,39 @@ class EventsAndListsViewController: UITableViewController {
             self.addEventButton.tintColor = .black
             print("ADMIN IS LOGGED IN")
         }
-        
-        //LOAD EVENTS
-        loadEvents()
-        print (eventsArr.count)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        EventsManager.loadEvents()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableViewSetup()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        AppData.sharedInstance.eventsArr.removeAll()
     }
     
     //SETUP METHODS
     func tableViewSetup() {
+//        loadEvents()
+        
+        eventsArr = AppData.sharedInstance.eventsArr
+        tableView.reloadData()
+        
         let rect = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height)
-        let label = UILabel(frame: rect)
+        label = UILabel(frame: rect)
         tableView.addSubview(label)
         label.text = "🌊 No WAVY Events Right Now 🌊"
         label.textColor = .gray
         label.textAlignment = .center
         tableView.backgroundColor = .black
         
-        if tableView.numberOfRows(inSection: 0) > 0 {
+        if eventsArr.count > 0 {
             label.isHidden = true
         }
+
     }
     
     func loadEvents() {
@@ -62,6 +78,7 @@ class EventsAndListsViewController: UITableViewController {
                 print("ERROR READING EVENTS")
                 return}
             
+            var newEvents = [WavyEvent]()
             for any in (value.allValues) {
                 
                 let event: [String : Any] = any as! Dictionary <String, Any>
@@ -71,9 +88,12 @@ class EventsAndListsViewController: UITableViewController {
                 
                 let readEvent = WavyEvent(name: eventName, key: eventKey, date: eventDate, guests: nil, itemRef: nil)
                 
-                self.eventsArr.append(readEvent)
+                newEvents.append(readEvent)
             }
+            self.eventsArr = newEvents
+            self.tableView.reloadData()
         }
+        
     }
     
     @IBAction func backAction(_ sender: UIBarButtonItem) {

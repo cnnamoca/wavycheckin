@@ -21,18 +21,16 @@ class EventsManager: NSObject {
             "idKey": event.key
         ]
         
-    Database.database().reference().child("WavyEvents").child(event.name).setValue(eventDict)
+    AppData.sharedInstance.eventsNode.child(event.name).setValue(eventDict)
     }
     
-    class func loadEvents() -> [WavyEvent]{
-        
-        var eventsArr = [WavyEvent]()
-        Database.database().reference().child("WavyEvents").observe(.value) { (snapshot) in
+    class func loadEvents() {
+        AppData.sharedInstance.eventsNode.observe(.value) { (snapshot) in
             
             guard let value = snapshot.value as? NSDictionary else {
                 print("ERROR READING EVENTS")
                 return}
-            
+  
             for any in (value.allValues) {
                 
                 let event: [String : Any] = any as! Dictionary <String, Any>
@@ -42,10 +40,12 @@ class EventsManager: NSObject {
                 
                 let readEvent = WavyEvent(name: eventName, key: eventKey, date: eventDate, guests: nil, itemRef: nil)
                 
-                eventsArr.append(readEvent)
+                AppData.sharedInstance.eventsArr.append(readEvent)
             }
-            
         }
-        return eventsArr
     }
+    
+    
+    
+    
 }

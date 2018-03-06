@@ -9,14 +9,14 @@
 import UIKit
 
 class AddEventPopUpViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         popUpView.layer.cornerRadius = 10
         textField.placeholder = "Enter Event Name"
         saveButton.isEnabled = false
@@ -32,6 +32,7 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate {
         let dateStr = formatter.string(from: datePicker.date)
         let wavyEvent = WavyEvent.init(name: textField.text, key: textField.text! + "|" + datePicker.date.description, date: dateStr, guests: nil, itemRef: nil)
         EventsManager.saveEvent(event: wavyEvent)
+       
         dismiss(animated: true, completion: nil)
     }
     
@@ -39,11 +40,11 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        if (textField.text?.isEmpty)! {
-//            self.saveButton.isEnabled = false
-//        }
-//    }
+    //    func textFieldDidBeginEditing(_ textField: UITextField) {
+    //        if (textField.text?.isEmpty)! {
+    //            self.saveButton.isEnabled = false
+    //        }
+    //    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField.text?.isEmpty)! {
@@ -57,5 +58,5 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
+    
 }
