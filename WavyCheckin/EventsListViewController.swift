@@ -10,10 +10,9 @@ import UIKit
 import SCLAlertView
 import Firebase
 
-class EventsAndListsViewController: UITableViewController {
+class EventsListsViewController: UITableViewController, EventsDelegate {
     
     var eventsArr = [WavyEvent]()
-    var dbRef:DatabaseReference!
     var label = UILabel()
     
     @IBOutlet weak var addEventButton: UIBarButtonItem!
@@ -23,10 +22,8 @@ class EventsAndListsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .black
-        dbRef = Database.database().reference().child("WavyEvents")
         EventsManager.loadEvents()
-        
-        //CHECK IF ADMIN
+
         if Auth.auth().currentUser == nil {
             self.addEventButton.isEnabled = false
             self.addEventButton.tintColor = .clear
@@ -68,7 +65,25 @@ class EventsAndListsViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    func didFinishUpdates() {
+//        DispatchQueue.main.async {
+//            AppData.sharedInstance.eventsNode.observe(.childAdded) { (snapshot) in
+//                EventsManager.loadEvents()
+//                self.setupData()
+//                
+//            }
+//        }
+        
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nav = segue.destination as? AddEventPopUpViewController {
+            nav.delegate = self as EventsDelegate
+        }
+    }
+    
+    //TABLEVIEW DELEGATE METHODS
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventsArr.count
     }
@@ -91,8 +106,7 @@ class EventsAndListsViewController: UITableViewController {
             alert.addButton("Add Guest") {
                 if let guestName = txt.text {
                     
-                    let guestsRef = self.dbRef.child("Guests").childByAutoId()
-                    guestsRef.setValue(guestName)
+                    //
                 }
             }
             

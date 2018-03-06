@@ -15,10 +15,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Events And Lists View Controller-->
+        <!--Events Lists View Controller-->
         <scene sceneID="lXG-eq-NYJ">
             <objects>
-                <tableViewController id="Bh5-VT-fq9" customClass="EventsAndListsViewController" customModule="WavyCheckin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Bh5-VT-fq9" customClass="EventsListsViewController" customModule="WavyCheckin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ySr-Pn-bJ2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
