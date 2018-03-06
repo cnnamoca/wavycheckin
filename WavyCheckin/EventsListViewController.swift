@@ -23,9 +23,7 @@ class EventsAndListsViewController: UITableViewController {
         super.viewDidLoad()
 
         dbRef = Database.database().reference().child("WavyEvents")
-//        tableViewSetup()
-        
-//        EventsManager.loadEvents()
+        EventsManager.loadEvents()
         
         //CHECK IF ADMIN
         if Auth.auth().currentUser == nil {
@@ -38,10 +36,6 @@ class EventsAndListsViewController: UITableViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        EventsManager.loadEvents()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         tableViewSetup()
     }
@@ -52,8 +46,6 @@ class EventsAndListsViewController: UITableViewController {
     
     //SETUP METHODS
     func tableViewSetup() {
-//        loadEvents()
-        
         eventsArr = AppData.sharedInstance.eventsArr
         tableView.reloadData()
         
