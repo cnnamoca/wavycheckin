@@ -18,10 +18,11 @@ class EventsAndListsViewController: UITableViewController {
     
     @IBOutlet weak var addEventButton: UIBarButtonItem!
     @IBOutlet weak var backgroundImageView: UIImageView!
-
+    
+    //LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.backgroundColor = .black
         dbRef = Database.database().reference().child("WavyEvents")
         EventsManager.loadEvents()
         
@@ -37,7 +38,7 @@ class EventsAndListsViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        tableViewSetup()
+       setupData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,7 +46,7 @@ class EventsAndListsViewController: UITableViewController {
     }
     
     //SETUP METHODS
-    func tableViewSetup() {
+    func setupData() {
         eventsArr = AppData.sharedInstance.eventsArr
         tableView.reloadData()
         
@@ -55,37 +56,12 @@ class EventsAndListsViewController: UITableViewController {
         label.text = "🌊 No WAVY Events Right Now 🌊"
         label.textColor = .gray
         label.textAlignment = .center
-        tableView.backgroundColor = .black
+        
         
         if eventsArr.count > 0 {
             label.isHidden = true
         }
 
-    }
-    
-    func loadEvents() {
-        Database.database().reference().child("WavyEvents").observe(.value) { (snapshot) in
-            
-            guard let value = snapshot.value as? NSDictionary else {
-                print("ERROR READING EVENTS")
-                return}
-            
-            var newEvents = [WavyEvent]()
-            for any in (value.allValues) {
-                
-                let event: [String : Any] = any as! Dictionary <String, Any>
-                let eventName = event["eventNameKey"] as! String
-                let eventDate = event["eventDateKey"] as! String
-                let eventKey = event["idKey"] as! String
-                
-                let readEvent = WavyEvent(name: eventName, key: eventKey, date: eventDate, guests: nil, itemRef: nil)
-                
-                newEvents.append(readEvent)
-            }
-            self.eventsArr = newEvents
-            self.tableView.reloadData()
-        }
-        
     }
     
     @IBAction func backAction(_ sender: UIBarButtonItem) {
