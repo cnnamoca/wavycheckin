@@ -11,7 +11,7 @@ import Firebase
 
 class EventsManager: NSObject {
     
-    var events = [WavyEvent]()
+    //var delegate: EventsDelegate?
     
     class func saveEvent(event: WavyEvent) {
         
@@ -25,12 +25,11 @@ class EventsManager: NSObject {
     }
     
     class func loadEvents() {
-        AppData.sharedInstance.eventsNode.observe(.value) { (snapshot) in
-            
+        AppData.sharedInstance.eventsNode.observe(.value, with: { (snapshot) in
+            AppData.sharedInstance.eventsArr.removeAll()
             guard let value = snapshot.value as? NSDictionary else {
-                print("ERROR READING EVENTS")
                 return}
-  
+            
             for any in (value.allValues) {
                 
                 let event: [String : Any] = any as! Dictionary <String, Any>
@@ -42,6 +41,8 @@ class EventsManager: NSObject {
                 
                 AppData.sharedInstance.eventsArr.append(readEvent)
             }
+        }) { (error) in
+            print(error.localizedDescription)
         }
     }
     

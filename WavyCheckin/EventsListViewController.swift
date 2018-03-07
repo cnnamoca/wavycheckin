@@ -23,7 +23,8 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         super.viewDidLoad()
         tableView.backgroundColor = .black
         EventsManager.loadEvents()
-
+        tableView.reloadData()
+        
         if Auth.auth().currentUser == nil {
             self.addEventButton.isEnabled = false
             self.addEventButton.tintColor = .clear
@@ -36,10 +37,6 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
        setupData()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        AppData.sharedInstance.eventsArr.removeAll()
     }
     
     //SETUP METHODS
@@ -66,13 +63,13 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     }
     
     func didFinishUpdates() {
-//        DispatchQueue.main.async {
-//            AppData.sharedInstance.eventsNode.observe(.childAdded) { (snapshot) in
-//                EventsManager.loadEvents()
-//                self.setupData()
-//                
-//            }
-//        }
+        DispatchQueue.main.async {
+            self.eventsArr = AppData.sharedInstance.eventsArr
+            self.tableView.reloadData()
+            if self.eventsArr.count > 0 {
+                self.label.isHidden = true
+            }
+        }
         
     }
     
@@ -89,8 +86,9 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! WavyCellTableViewCell
+        cell.eventNameLabel.text = eventsArr[indexPath.row].name
+        cell.dateLabel.text = eventsArr[indexPath.row].date
         return cell
     }
     
