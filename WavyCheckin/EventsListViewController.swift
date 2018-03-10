@@ -14,6 +14,7 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     
     var eventsArr = [WavyEvent]()
     var label = UILabel()
+    var wavyCell = WavyCellTableViewCell()
     
     @IBOutlet weak var addEventButton: UIBarButtonItem!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -36,7 +37,7 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       setupData()
+        setupData()
     }
     
     //SETUP METHODS
@@ -55,7 +56,7 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         if eventsArr.count > 0 {
             label.isHidden = true
         }
-
+        
     }
     
     @IBAction func backAction(_ sender: UIBarButtonItem) {
@@ -80,7 +81,7 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     }
     
     //TABLEVIEW DELEGATE METHODS
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventsArr.count
     }
@@ -95,7 +96,7 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if Auth.auth().currentUser == nil {
             let alert = SCLAlertView()
@@ -103,19 +104,23 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
             
             alert.addButton("Add Guest") {
                 if let guestName = txt.text {
+                    let guestDict: [String : Any] = [
+                        "guestNameKey":guestName
+                    ]
                     
-                    //
+                    let cell = tableView.cellForRow(at: indexPath) as! WavyCellTableViewCell
+                    AppData.sharedInstance.eventsNode.child(cell.eventNameLabel.text!).child("Guests").childByAutoId().setValue(guestDict)
                 }
             }
             
             
             alert.showEdit("Add Guests", subTitle: "Add Guest Names")
         } else {
-            //go to guestlist edit as admin
+            performSegue(withIdentifier: "ToGuestlist", sender: indexPath.row)
         }
     }
-
-
-
-
+    
+    
+    
+    
 }

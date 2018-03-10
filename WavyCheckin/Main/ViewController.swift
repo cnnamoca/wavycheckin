@@ -24,7 +24,6 @@ class ViewController: UIViewController {
         addGuestButton.layer.cornerRadius = addGuestButton.frame.height / 2
     }
     
-    //add shake gesture to add login
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             UIView.animate(withDuration: 1,

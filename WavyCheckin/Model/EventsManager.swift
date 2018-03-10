@@ -41,6 +41,9 @@ class EventsManager: NSObject {
                 
                 AppData.sharedInstance.eventsArr.append(readEvent)
             }
+            
+            AppData.sharedInstance.eventsNode.keepSynced(true)
+            
         }) { (error) in
             print(error.localizedDescription)
         }

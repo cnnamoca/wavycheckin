@@ -24,6 +24,7 @@
 		E6806B352048C71B005FF5AC /* EventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6806B342048C71B005FF5AC /* EventsManager.swift */; };
 		E6806B372048EF7A005FF5AC /* AddEventPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6806B362048EF7A005FF5AC /* AddEventPopUpViewController.swift */; };
 		E6E4A849204F4B9400634C28 /* WavyCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E4A848204F4B9400634C28 /* WavyCellTableViewCell.swift */; };
+		E6E4A84B205346B900634C28 /* GuestlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E4A84A205346B900634C28 /* GuestlistTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		E6806B342048C71B005FF5AC /* EventsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsManager.swift; sourceTree = "<group>"; };
 		E6806B362048EF7A005FF5AC /* AddEventPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventPopUpViewController.swift; sourceTree = "<group>"; };
 		E6E4A848204F4B9400634C28 /* WavyCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavyCellTableViewCell.swift; sourceTree = "<group>"; };
+		E6E4A84A205346B900634C28 /* GuestlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestlistTableViewController.swift; sourceTree = "<group>"; };
 		F2C0CFA9D4D473533F2129A6 /* Pods_WavyCheckin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WavyCheckin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				E62DE0A5203805EB00CE418E /* GuestList.storyboard */,
+				E6E4A84A205346B900634C28 /* GuestlistTableViewController.swift */,
 			);
 			path = GuestList;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				E615CEFC203228E900521F80 /* ViewController.swift in Sources */,
 				E6E4A849204F4B9400634C28 /* WavyCellTableViewCell.swift in Sources */,
 				E615CEFA203228E900521F80 /* AppDelegate.swift in Sources */,
+				E6E4A84B205346B900634C28 /* GuestlistTableViewController.swift in Sources */,
 				E62DE0B0203F313500CE418E /* User.swift in Sources */,
 				E615CF02203228E900521F80 /* WavyCheckin.xcdatamodeld in Sources */,
 				E62DE0A8203810F100CE418E /* EventsListViewController.swift in Sources */,

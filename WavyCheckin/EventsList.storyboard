@@ -15,6 +15,14 @@
         </array>
     </customFonts>
     <scenes>
+        <!--GuestList-->
+        <scene sceneID="CRu-X1-WdL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GuestList" id="CKb-uj-wdq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rUC-1E-9Jp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="959" y="-320"/>
+        </scene>
         <!--Events Lists View Controller-->
         <scene sceneID="lXG-eq-NYJ">
             <objects>
@@ -84,6 +92,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addEventButton" destination="qJF-Dr-pb8" id="2cH-H8-Qyc"/>
+                        <segue destination="CKb-uj-wdq" kind="presentation" identifier="ToGuestlist" id="0On-Zr-qHB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imd-6X-38n" userLabel="First Responder" sceneMemberID="firstResponder"/>
