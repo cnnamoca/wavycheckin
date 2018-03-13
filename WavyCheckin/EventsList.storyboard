@@ -70,6 +70,7 @@
                                     <outlet property="backgroundImageView" destination="pwM-CN-emP" id="ROI-Nr-WGg"/>
                                     <outlet property="dateLabel" destination="PCW-9y-lQZ" id="LsZ-3O-PPc"/>
                                     <outlet property="eventNameLabel" destination="Tqt-38-b7e" id="sCM-bu-CuY"/>
+                                    <segue destination="CKb-uj-wdq" kind="presentation" identifier="ToGuestlist" trigger="accessoryAction" id="46g-dk-OqQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -92,7 +93,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addEventButton" destination="qJF-Dr-pb8" id="2cH-H8-Qyc"/>
-                        <segue destination="CKb-uj-wdq" kind="presentation" identifier="ToGuestlist" id="0On-Zr-qHB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imd-6X-38n" userLabel="First Responder" sceneMemberID="firstResponder"/>

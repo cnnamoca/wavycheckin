@@ -19,6 +19,7 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     var eventsArr = [WavyEvent]()
     var label = UILabel()
     var wavyCell = WavyCellTableViewCell()
+    var eventName = String()
     var delegate: GuestsDelegate?
     
     @IBOutlet weak var addEventButton: UIBarButtonItem!
@@ -85,8 +86,10 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         }
         
         if let guestVC = segue.destination as? GuestlistTableViewController {
-            self.delegate = guestVC as GuestsDelegate
+            self.delegate = guestVC
+            self.delegate?.loadGuests(event: eventName)
         }
+
     }
     
     //TABLEVIEW DELEGATE METHODS
@@ -125,7 +128,7 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
             alert.showEdit("Add Guests", subTitle: "Add Guest Names")
         } else {
             let cell = tableView.cellForRow(at: indexPath) as! WavyCellTableViewCell
-            self.delegate?.loadGuests(event: cell.eventNameLabel.text!)
+            self.eventName = cell.eventNameLabel.text!
             performSegue(withIdentifier: "ToGuestlist", sender: indexPath.row)
         }
     }

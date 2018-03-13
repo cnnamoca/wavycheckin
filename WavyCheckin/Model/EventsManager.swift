@@ -64,8 +64,5 @@ class EventsManager: NSObject {
             print(error.localizedDescription)
         }
     }
-    
-    
-    
-    
+     
 }

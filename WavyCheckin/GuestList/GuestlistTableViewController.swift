@@ -12,7 +12,7 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     func loadGuests(event: String) {
@@ -27,6 +27,12 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AppData.sharedInstance.eventGuests.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath)
+        
+        return cell
     }
 
 
