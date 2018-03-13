@@ -21,7 +21,7 @@ class EventsManager: NSObject {
             "idKey": event.key
         ]
         
-    AppData.sharedInstance.eventsNode.child(event.name).setValue(eventDict)
+        AppData.sharedInstance.eventsNode.child(event.name).setValue(eventDict)
     }
     
     class func loadEvents() {
@@ -43,6 +43,22 @@ class EventsManager: NSObject {
             }
             
             AppData.sharedInstance.eventsNode.keepSynced(true)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    class func loadGuests(event: String) {
+        AppData.sharedInstance.eventsNode.child(event).child("Guests").observe(.value, with: { (snapshot) in
+            
+            for snap in snapshot.children.allObjects {
+                let guest = snap as! DataSnapshot
+                
+                AppData.sharedInstance.eventGuests.append(guest)
+            }
+            
+            AppData.sharedInstance.eventsNode.child(event).child("Guests").keepSynced(true)
             
         }) { (error) in
             print(error.localizedDescription)

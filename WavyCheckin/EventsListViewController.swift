@@ -10,11 +10,16 @@ import UIKit
 import SCLAlertView
 import Firebase
 
+protocol GuestsDelegate {
+    func loadGuests(event: String)
+}
+
 class EventsListsViewController: UITableViewController, EventsDelegate {
     
     var eventsArr = [WavyEvent]()
     var label = UILabel()
     var wavyCell = WavyCellTableViewCell()
+    var delegate: GuestsDelegate?
     
     @IBOutlet weak var addEventButton: UIBarButtonItem!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -78,6 +83,10 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         if let nav = segue.destination as? AddEventPopUpViewController {
             nav.delegate = self as EventsDelegate
         }
+        
+        if let guestVC = segue.destination as? GuestlistTableViewController {
+            self.delegate = guestVC as GuestsDelegate
+        }
     }
     
     //TABLEVIEW DELEGATE METHODS
@@ -113,9 +122,10 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
                 }
             }
             
-            
             alert.showEdit("Add Guests", subTitle: "Add Guest Names")
         } else {
+            let cell = tableView.cellForRow(at: indexPath) as! WavyCellTableViewCell
+            self.delegate?.loadGuests(event: cell.eventNameLabel.text!)
             performSegue(withIdentifier: "ToGuestlist", sender: indexPath.row)
         }
     }

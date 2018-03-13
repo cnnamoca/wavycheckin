@@ -14,7 +14,7 @@ struct WavyEvent {
     let name: String!
     let key: String!
     let date: String!
-    let guests: [String]!
+    let guests: [DataSnapshot]!
     let itemRef: DatabaseReference?
     
     

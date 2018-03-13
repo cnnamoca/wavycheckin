@@ -8,11 +8,16 @@
 
 import UIKit
 
-class GuestlistTableViewController: UITableViewController {
-
+class GuestlistTableViewController: UITableViewController, GuestsDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    func loadGuests(event: String) {
+        EventsManager.loadGuests(event: event)
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -21,8 +26,7 @@ class GuestlistTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return AppData.sharedInstance.eventGuests.count
     }
 
 
