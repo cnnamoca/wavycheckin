@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var addGuestButton: UIButton!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

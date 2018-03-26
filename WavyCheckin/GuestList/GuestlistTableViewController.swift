@@ -12,7 +12,6 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     func loadGuests(event: String) {
@@ -20,8 +19,12 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
         tableView.reloadData()
     }
     
+    @IBAction func backAction(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 70
     }
 
 
@@ -31,6 +34,8 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath)
+        cell.textLabel?.text = AppData.sharedInstance.eventGuests[indexPath.row].description
+        cell.textLabel?.textAlignment = .center
         
         return cell
     }

@@ -51,11 +51,15 @@ class EventsManager: NSObject {
     
     class func loadGuests(event: String) {
         AppData.sharedInstance.eventsNode.child(event).child("Guests").observe(.value, with: { (snapshot) in
+            AppData.sharedInstance.eventGuests.removeAll()
+            guard let value = snapshot.value as? NSDictionary else {
+                return}
             
-            for snap in snapshot.children.allObjects {
-                let guest = snap as! DataSnapshot
+            for any in value.allValues {
+                let guest: [String : Any] = any as! Dictionary <String, Any>
+                let guestName = guest["guestNameKey"] as! String
                 
-                AppData.sharedInstance.eventGuests.append(guest)
+                AppData.sharedInstance.eventGuests.append(guestName)
             }
             
             AppData.sharedInstance.eventsNode.child(event).child("Guests").keepSynced(true)

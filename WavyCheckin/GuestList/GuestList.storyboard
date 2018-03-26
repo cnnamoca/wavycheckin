@@ -20,9 +20,17 @@
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="eev-es-o6Z">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </textAttributes>
                             <items>
                                 <navigationItem title="Guestlist" id="983-B0-Q3a">
-                                    <barButtonItem key="leftBarButtonItem" title="Back" id="gP6-DO-gGk"/>
+                                    <barButtonItem key="leftBarButtonItem" title="Back" id="gP6-DO-gGk">
+                                        <connections>
+                                            <action selector="backAction:" destination="wiD-VJ-C1V" id="Xwg-hA-qCb"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
@@ -33,18 +41,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gEp-hk-AeZ" id="PWw-p1-BTR">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw4-DD-bad">
-                                            <rect key="frame" x="141.5" y="39.5" width="91" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Fw4-DD-bad" firstAttribute="centerY" secondItem="PWw-p1-BTR" secondAttribute="centerY" id="KKf-8m-F1f"/>
-                                        <constraint firstItem="Fw4-DD-bad" firstAttribute="centerX" secondItem="PWw-p1-BTR" secondAttribute="centerX" id="l5Q-fb-XEN"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>

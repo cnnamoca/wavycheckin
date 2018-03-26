@@ -16,7 +16,7 @@ class AppData: NSObject {
     
     public var eventsNode: DatabaseReference
     public var eventsArr = [WavyEvent]()
-    public var eventGuests = [DataSnapshot]()
+    public var eventGuests = [String]()
     
     public override init() {
         eventsNode = Database.database().reference().child("WavyEvents")
