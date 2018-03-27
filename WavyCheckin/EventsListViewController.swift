@@ -31,6 +31,7 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         tableView.backgroundColor = .black
         EventsManager.loadEvents()
         tableView.reloadData()
+        addRefresh()
         
         if Auth.auth().currentUser == nil {
             self.addEventButton.isEnabled = false
@@ -77,7 +78,21 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
                 self.label.isHidden = true
             }
         }
-        
+    }
+    
+    private func addRefresh() {
+        let refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        tableView.addSubview(refreshControl)
+        refreshControl.tintColor = .white
+        refreshControl.backgroundColor = .purple
+        refreshControl.addTarget(self, action: #selector(refreshEvents(_:)), for: .valueChanged)
+    }
+    
+    @objc private func refreshEvents(_ sender: Any) {
+        didFinishUpdates()
+        refreshControl?.endRefreshing()
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -132,8 +147,5 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
             performSegue(withIdentifier: "ToGuestlist", sender: indexPath.row)
         }
     }
-    
-    
-    
     
 }
