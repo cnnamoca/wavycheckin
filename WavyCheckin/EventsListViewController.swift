@@ -29,7 +29,9 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .black
+
         EventsManager.loadEvents()
+        
         tableView.reloadData()
         addRefresh()
         
@@ -90,10 +92,8 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     }
     
     @objc private func refreshEvents(_ sender: Any) {
-        //didFinishUpdates()
-        tableView.reloadData()
+        didFinishUpdates()
         refreshControl?.endRefreshing()
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
