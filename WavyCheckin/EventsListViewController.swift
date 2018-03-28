@@ -90,7 +90,8 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     }
     
     @objc private func refreshEvents(_ sender: Any) {
-        didFinishUpdates()
+        //didFinishUpdates()
+        tableView.reloadData()
         refreshControl?.endRefreshing()
 
     }
