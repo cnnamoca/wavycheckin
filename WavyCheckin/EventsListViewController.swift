@@ -123,6 +123,26 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         cell.backgroundImageView.clipsToBounds = true
         cell.backgroundImageView.contentMode = .scaleAspectFill
         
+        let wavyEvent = eventsArr[indexPath.row]
+        if let eventImageURL = wavyEvent.eventImage {
+            let url = URL(fileURLWithPath: eventImageURL)
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                
+                //In case we hit an error
+                if error != nil {
+                    print(error!.localizedDescription)
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                  cell.backgroundImageView.image = UIImage(data: data!)
+                }
+
+                
+            })
+            
+        }
+        
         
         return cell
     }
