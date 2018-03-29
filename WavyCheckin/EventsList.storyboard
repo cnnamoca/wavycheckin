@@ -114,32 +114,39 @@
                                         <rect key="frame" x="5" y="10" width="281" height="347"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PC3-PV-Fd8">
-                                                <rect key="frame" x="0.0" y="0.0" width="281" height="16.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="281" height="14.5"/>
                                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bWm-8b-5Db">
-                                                <rect key="frame" x="0.0" y="26.5" width="281" height="206"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="281" height="186"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="541649218.83148503">
                                                     <!--2018-03-02 02:06:58 +0000-->
                                                 </date>
                                             </datePicker>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Event Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LwD-tY-3Gc">
-                                                <rect key="frame" x="0.0" y="242.5" width="281" height="29"/>
+                                                <rect key="frame" x="0.0" y="220.5" width="281" height="26"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHa-Ej-qeV">
+                                                <rect key="frame" x="0.0" y="256.5" width="281" height="26"/>
+                                                <state key="normal" title="Add Image"/>
+                                                <connections>
+                                                    <action selector="addImageAction:" destination="Iil-e7-S1b" eventType="touchUpInside" id="4x8-E9-W8S"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEd-r3-IGk">
-                                                <rect key="frame" x="0.0" y="281.5" width="281" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="292.5" width="281" height="25.5"/>
                                                 <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="saveAction:" destination="Iil-e7-S1b" eventType="touchUpInside" id="DJX-VP-eSB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8R-eD-E1q">
-                                                <rect key="frame" x="0.0" y="320" width="281" height="27"/>
+                                                <rect key="frame" x="0.0" y="328" width="281" height="19"/>
                                                 <state key="normal" title="Cancel"/>
                                                 <connections>
                                                     <action selector="cancelAction:" destination="Iil-e7-S1b" eventType="touchUpInside" id="FaT-dD-kmq"/>

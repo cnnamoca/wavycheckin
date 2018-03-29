@@ -47,6 +47,12 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func addImageAction(_ sender: UIButton) {
+        //Add image functions
+        
+    }
+    
+    
     @IBAction func cancelAction(_ sender: UIButton) {
         self.delegate?.didFinishUpdates()
         dismiss(animated: true, completion: nil)
