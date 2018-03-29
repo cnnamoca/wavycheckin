@@ -118,6 +118,12 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! WavyCellTableViewCell
         cell.eventNameLabel.text = eventsArr[indexPath.row].name
         cell.dateLabel.text = eventsArr[indexPath.row].date
+        
+        cell.backgroundImageView.image = UIImage(named: "wavygray")
+        cell.backgroundImageView.clipsToBounds = true
+        cell.backgroundImageView.contentMode = .scaleAspectFill
+        
+        
         return cell
     }
     
