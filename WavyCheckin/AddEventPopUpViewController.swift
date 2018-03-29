@@ -18,6 +18,7 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImag
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var selectedImageView: UIImageView!
     var delegate: EventsDelegate?
     
     override func viewDidLoad() {
@@ -27,8 +28,6 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImag
         textField.placeholder = "Enter Event Name"
         saveButton.isEnabled = false
         textField.delegate = self
-        
-        
         
     }
     
@@ -50,6 +49,7 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImag
     @IBAction func addImageAction(_ sender: UIButton) {
         let imgPicker = UIImagePickerController()
         imgPicker.delegate = self
+        imgPicker.allowsEditing = true
         present(imgPicker, animated: true, completion: nil)
     }
     
@@ -59,8 +59,17 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImag
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            print(originalImage.size)
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            selectedImageFromPicker = editedImage
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            selectedImageFromPicker = originalImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker {
+            selectedImageView.image = selectedImage
+            dismiss(animated: true, completion: nil)
         }
         
     }

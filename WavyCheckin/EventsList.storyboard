@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -108,45 +109,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVW-EV-Zt6">
-                                <rect key="frame" x="42" y="160" width="291" height="367"/>
+                                <rect key="frame" x="30" y="50" width="315" height="567"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EYA-vY-6sz">
-                                        <rect key="frame" x="5" y="10" width="281" height="347"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PC3-PV-Fd8">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="25"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wavygray" translatesAutoresizingMaskIntoConstraints="NO" id="VSx-Cz-fSb">
+                                        <rect key="frame" x="5" y="25" width="305" height="156"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="VSx-Cz-fSb" secondAttribute="height" multiplier="305:156" id="T7x-wI-4j2"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EYA-vY-6sz">
+                                        <rect key="frame" x="5" y="181" width="305" height="376"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PC3-PV-Fd8">
-                                                <rect key="frame" x="0.0" y="0.0" width="281" height="14.5"/>
-                                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bWm-8b-5Db">
-                                                <rect key="frame" x="0.0" y="24.5" width="281" height="186"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="305" height="216"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="541649218.83148503">
                                                     <!--2018-03-02 02:06:58 +0000-->
                                                 </date>
                                             </datePicker>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Event Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LwD-tY-3Gc">
-                                                <rect key="frame" x="0.0" y="220.5" width="281" height="26"/>
+                                                <rect key="frame" x="0.0" y="226" width="305" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHa-Ej-qeV">
-                                                <rect key="frame" x="0.0" y="256.5" width="281" height="26"/>
+                                                <rect key="frame" x="0.0" y="266" width="305" height="30"/>
                                                 <state key="normal" title="Add Image"/>
                                                 <connections>
                                                     <action selector="addImageAction:" destination="Iil-e7-S1b" eventType="touchUpInside" id="4x8-E9-W8S"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEd-r3-IGk">
-                                                <rect key="frame" x="0.0" y="292.5" width="281" height="25.5"/>
+                                                <rect key="frame" x="0.0" y="306" width="305" height="30"/>
                                                 <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="saveAction:" destination="Iil-e7-S1b" eventType="touchUpInside" id="DJX-VP-eSB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8R-eD-E1q">
-                                                <rect key="frame" x="0.0" y="328" width="281" height="19"/>
+                                                <rect key="frame" x="0.0" y="346" width="305" height="30"/>
                                                 <state key="normal" title="Cancel"/>
                                                 <connections>
                                                     <action selector="cancelAction:" destination="Iil-e7-S1b" eventType="touchUpInside" id="FaT-dD-kmq"/>
@@ -158,18 +165,25 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="EYA-vY-6sz" firstAttribute="leading" secondItem="HVW-EV-Zt6" secondAttribute="leading" constant="5" id="0Ri-RG-KCh"/>
+                                    <constraint firstItem="VSx-Cz-fSb" firstAttribute="leading" secondItem="HVW-EV-Zt6" secondAttribute="leading" constant="5" id="2jX-Ou-J38"/>
+                                    <constraint firstItem="PC3-PV-Fd8" firstAttribute="leading" secondItem="HVW-EV-Zt6" secondAttribute="leading" id="7fp-5T-DIM"/>
                                     <constraint firstAttribute="trailing" secondItem="EYA-vY-6sz" secondAttribute="trailing" constant="5" id="B1f-vj-X46"/>
-                                    <constraint firstItem="EYA-vY-6sz" firstAttribute="top" secondItem="HVW-EV-Zt6" secondAttribute="top" constant="10" id="hig-cP-xkG"/>
+                                    <constraint firstItem="VSx-Cz-fSb" firstAttribute="top" secondItem="PC3-PV-Fd8" secondAttribute="bottom" id="DSj-nF-liP"/>
+                                    <constraint firstAttribute="trailing" secondItem="VSx-Cz-fSb" secondAttribute="trailing" constant="5" id="DhB-Hy-JV4"/>
+                                    <constraint firstItem="PC3-PV-Fd8" firstAttribute="centerX" secondItem="HVW-EV-Zt6" secondAttribute="centerX" id="Ehm-sj-UAZ"/>
+                                    <constraint firstItem="PC3-PV-Fd8" firstAttribute="top" secondItem="HVW-EV-Zt6" secondAttribute="top" id="HvN-6K-Ki4"/>
+                                    <constraint firstAttribute="trailing" secondItem="PC3-PV-Fd8" secondAttribute="trailing" id="VWU-za-Mw7"/>
+                                    <constraint firstItem="EYA-vY-6sz" firstAttribute="top" secondItem="VSx-Cz-fSb" secondAttribute="bottom" id="l1t-qa-f2t"/>
                                     <constraint firstAttribute="bottom" secondItem="EYA-vY-6sz" secondAttribute="bottom" constant="10" id="wXX-7V-BKu"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="n4D-Hb-Gp9" firstAttribute="trailing" secondItem="HVW-EV-Zt6" secondAttribute="trailing" constant="42" id="0Zq-P1-mLH"/>
-                            <constraint firstItem="HVW-EV-Zt6" firstAttribute="leading" secondItem="n4D-Hb-Gp9" secondAttribute="leading" constant="42" id="4xy-Dc-Rl8"/>
-                            <constraint firstItem="HVW-EV-Zt6" firstAttribute="top" secondItem="n4D-Hb-Gp9" secondAttribute="top" constant="140" id="Hhh-4K-xZA"/>
-                            <constraint firstItem="n4D-Hb-Gp9" firstAttribute="bottom" secondItem="HVW-EV-Zt6" secondAttribute="bottom" constant="140" id="ekt-KK-G8V"/>
+                            <constraint firstItem="n4D-Hb-Gp9" firstAttribute="trailing" secondItem="HVW-EV-Zt6" secondAttribute="trailing" constant="30" id="0Zq-P1-mLH"/>
+                            <constraint firstItem="HVW-EV-Zt6" firstAttribute="leading" secondItem="n4D-Hb-Gp9" secondAttribute="leading" constant="30" id="4xy-Dc-Rl8"/>
+                            <constraint firstItem="HVW-EV-Zt6" firstAttribute="top" secondItem="aEa-2g-0GH" secondAttribute="top" constant="50" id="cM0-3W-r8j"/>
+                            <constraint firstItem="n4D-Hb-Gp9" firstAttribute="bottom" secondItem="HVW-EV-Zt6" secondAttribute="bottom" constant="50" id="ekt-KK-G8V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n4D-Hb-Gp9"/>
                     </view>
@@ -177,6 +191,7 @@
                         <outlet property="datePicker" destination="bWm-8b-5Db" id="79z-7U-rav"/>
                         <outlet property="popUpView" destination="HVW-EV-Zt6" id="YyC-SJ-qO1"/>
                         <outlet property="saveButton" destination="YEd-r3-IGk" id="gB1-J1-x60"/>
+                        <outlet property="selectedImageView" destination="VSx-Cz-fSb" id="rmc-PJ-wQ2"/>
                         <outlet property="textField" destination="LwD-tY-3Gc" id="lme-4d-4sc"/>
                     </connections>
                 </viewController>
@@ -203,4 +218,7 @@
             <point key="canvasLocation" x="-286" y="155"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="wavygray" width="1334" height="1334"/>
+    </resources>
 </document>
