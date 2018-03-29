@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import FirebaseDatabase
 
 struct WavyEvent {
@@ -14,8 +15,7 @@ struct WavyEvent {
     let name: String!
     let key: String!
     let date: String!
-    let guests: [DataSnapshot]!
-    let itemRef: DatabaseReference?
-    
+    let eventImage: UIImage!
+    let guests: [DataSnapshot]!    
     
 }

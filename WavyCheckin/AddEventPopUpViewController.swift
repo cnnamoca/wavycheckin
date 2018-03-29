@@ -37,7 +37,7 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let dateStr = formatter.string(from: datePicker.date)
-        let wavyEvent = WavyEvent.init(name: textField.text, key: textField.text! + "|" + datePicker.date.description, date: dateStr, guests: nil, itemRef: nil)
+        let wavyEvent = WavyEvent.init(name: textField.text, key: textField.text! + "|" + datePicker.date.description, date: dateStr, eventImage: nil, guests: nil)
         EventsManager.saveEvent(event: wavyEvent)
         
         DispatchQueue.main.async {

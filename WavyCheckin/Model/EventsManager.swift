@@ -37,7 +37,7 @@ class EventsManager: NSObject {
                 let eventDate = event["eventDateKey"] as! String
                 let eventKey = event["idKey"] as! String
                 
-                let readEvent = WavyEvent(name: eventName, key: eventKey, date: eventDate, guests: nil, itemRef: nil)
+                let readEvent = WavyEvent(name: eventName, key: eventKey, date: eventDate, eventImage: nil, guests: nil)
                 
                 AppData.sharedInstance.eventsArr.append(readEvent)
             }
