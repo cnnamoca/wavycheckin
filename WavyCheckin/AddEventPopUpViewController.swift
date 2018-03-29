@@ -12,7 +12,7 @@ protocol EventsDelegate {
     func didFinishUpdates()
 }
 
-class AddEventPopUpViewController: UIViewController, UITextFieldDelegate {
+class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -48,7 +48,20 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addImageAction(_ sender: UIButton) {
-        //Add image functions
+        let imgPicker = UIImagePickerController()
+        imgPicker.delegate = self
+        present(imgPicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            print(originalImage.size)
+        }
         
     }
     
