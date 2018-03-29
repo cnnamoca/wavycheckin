@@ -32,11 +32,10 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImag
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
-        //EDIT DATE INTO STRING
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let dateStr = formatter.string(from: datePicker.date)
-        let wavyEvent = WavyEvent.init(name: textField.text, key: textField.text! + "|" + datePicker.date.description, date: dateStr, eventImage: nil, guests: nil)
+        let wavyEvent = WavyEvent.init(name: textField.text, key: textField.text! + "|" + datePicker.date.description, date: dateStr, eventImageURL: nil, guests: nil)
         EventsManager.saveEvent(event: wavyEvent)
         
         DispatchQueue.main.async {

@@ -18,7 +18,8 @@ class EventsManager: NSObject {
         let eventDict: [String:Any] = [
             "eventNameKey": event.name,
             "eventDateKey": event.date,
-            "idKey": event.key
+            "idKey": event.key,
+            "imageURL": event.eventImageURL
         ]
         
         AppData.sharedInstance.eventsNode.child(event.name).setValue(eventDict)
@@ -37,7 +38,7 @@ class EventsManager: NSObject {
                 let eventDate = event["eventDateKey"] as! String
                 let eventKey = event["idKey"] as! String
                 
-                let readEvent = WavyEvent(name: eventName, key: eventKey, date: eventDate, eventImage: nil, guests: nil)
+                let readEvent = WavyEvent(name: eventName, key: eventKey, date: eventDate, eventImageURL: nil, guests: nil)
                 
                 AppData.sharedInstance.eventsArr.append(readEvent)
             }
