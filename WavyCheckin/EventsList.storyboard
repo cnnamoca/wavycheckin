@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,6 +42,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pwM-CN-emP" userLabel="BackgroundView">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqt-38-b7e" userLabel="Event Name Label">
                                             <rect key="frame" x="86" y="84" width="203" height="31.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -53,9 +57,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pwM-CN-emP" userLabel="BackgroundView">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="pwM-CN-emP" firstAttribute="leading" secondItem="01T-cR-BLQ" secondAttribute="leading" id="4kB-Tw-vWL"/>
@@ -113,13 +114,13 @@
                                 <rect key="frame" x="30" y="50" width="315" height="567"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PC3-PV-Fd8">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="28"/>
                                         <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wavygray" translatesAutoresizingMaskIntoConstraints="NO" id="VSx-Cz-fSb">
-                                        <rect key="frame" x="5" y="25" width="305" height="156"/>
+                                        <rect key="frame" x="8" y="28" width="299" height="153"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="VSx-Cz-fSb" secondAttribute="height" multiplier="305:156" id="T7x-wI-4j2"/>
                                         </constraints>
@@ -166,14 +167,14 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="EYA-vY-6sz" firstAttribute="leading" secondItem="HVW-EV-Zt6" secondAttribute="leading" constant="5" id="0Ri-RG-KCh"/>
-                                    <constraint firstItem="VSx-Cz-fSb" firstAttribute="leading" secondItem="HVW-EV-Zt6" secondAttribute="leading" constant="5" id="2jX-Ou-J38"/>
                                     <constraint firstItem="PC3-PV-Fd8" firstAttribute="leading" secondItem="HVW-EV-Zt6" secondAttribute="leading" id="7fp-5T-DIM"/>
                                     <constraint firstAttribute="trailing" secondItem="EYA-vY-6sz" secondAttribute="trailing" constant="5" id="B1f-vj-X46"/>
                                     <constraint firstItem="VSx-Cz-fSb" firstAttribute="top" secondItem="PC3-PV-Fd8" secondAttribute="bottom" id="DSj-nF-liP"/>
-                                    <constraint firstAttribute="trailing" secondItem="VSx-Cz-fSb" secondAttribute="trailing" constant="5" id="DhB-Hy-JV4"/>
                                     <constraint firstItem="PC3-PV-Fd8" firstAttribute="centerX" secondItem="HVW-EV-Zt6" secondAttribute="centerX" id="Ehm-sj-UAZ"/>
+                                    <constraint firstItem="VSx-Cz-fSb" firstAttribute="leading" secondItem="HVW-EV-Zt6" secondAttribute="leadingMargin" id="GGd-9c-3z6"/>
                                     <constraint firstItem="PC3-PV-Fd8" firstAttribute="top" secondItem="HVW-EV-Zt6" secondAttribute="top" id="HvN-6K-Ki4"/>
                                     <constraint firstAttribute="trailing" secondItem="PC3-PV-Fd8" secondAttribute="trailing" id="VWU-za-Mw7"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="VSx-Cz-fSb" secondAttribute="trailing" id="W5V-Yi-hM2"/>
                                     <constraint firstItem="EYA-vY-6sz" firstAttribute="top" secondItem="VSx-Cz-fSb" secondAttribute="bottom" id="l1t-qa-f2t"/>
                                     <constraint firstAttribute="bottom" secondItem="EYA-vY-6sz" secondAttribute="bottom" constant="10" id="wXX-7V-BKu"/>
                                 </constraints>

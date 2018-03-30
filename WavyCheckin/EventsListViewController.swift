@@ -30,9 +30,6 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         super.viewDidLoad()
         tableView.backgroundColor = .black
 
-        EventsManager.loadEvents()
-        
-        tableView.reloadData()
         addRefresh()
         
         if Auth.auth().currentUser == nil {
@@ -47,24 +44,28 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         setupData()
+        didFinishUpdates()
     }
     
     //SETUP METHODS
     func setupData() {
-        eventsArr = AppData.sharedInstance.eventsArr
-        tableView.reloadData()
-        
-        let rect = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height)
-        label = UILabel(frame: rect)
-        tableView.addSubview(label)
-        label.text = "🌊 No WAVY Events Right Now 🌊"
-        label.textColor = .gray
-        label.textAlignment = .center
-        
-        if eventsArr.count > 0 {
-            label.isHidden = true
+        DispatchQueue.main.async {
+            
+            self.eventsArr = AppData.sharedInstance.eventsArr
+            self.tableView.reloadData()
+            
+            let rect = CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height)
+            self.label = UILabel(frame: rect)
+            self.tableView.addSubview(self.label)
+            self.label.text = "🌊 No WAVY Events Right Now 🌊"
+            self.label.textColor = .gray
+            self.label.textAlignment = .center
+            
+            
+            if self.eventsArr.count > 0 {
+                self.label.isHidden = true
+            }
         }
-        
     }
     
     @IBAction func backAction(_ sender: UIBarButtonItem) {
@@ -109,15 +110,12 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     
     //TABLEVIEW DELEGATE METHODS
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventsArr.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! WavyCellTableViewCell
         cell.eventNameLabel.text = eventsArr[indexPath.row].name
         cell.dateLabel.text = eventsArr[indexPath.row].date
@@ -127,18 +125,17 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         cell.backgroundImageView.contentMode = .scaleAspectFill
         
         //add separator thickness
-        let additionalSeparatorThickness = CGFloat(15)
-        let separatorFrame = CGRect(x: 0, y: cell.frame.height - additionalSeparatorThickness, width: cell.frame.size.width, height: additionalSeparatorThickness)
-        let additionalSeparator = UIView(frame: separatorFrame)
-        additionalSeparator.backgroundColor = .black
-        cell.addSubview(additionalSeparator)
+//        let additionalSeparatorThickness = CGFloat(15)
+//        let separatorFrame = CGRect(x: 0, y: cell.frame.height - additionalSeparatorThickness, width: cell.frame.size.width, height: additionalSeparatorThickness)
+//        let additionalSeparator = UIView(frame: separatorFrame)
+//        additionalSeparator.backgroundColor = .black
+//        cell.addSubview(additionalSeparator)
         
         let wavyEvent = eventsArr[indexPath.row]
         if let eventImageURL = wavyEvent.eventImageURL {
             let url = URL(fileURLWithPath: eventImageURL)
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 
-                //In case we hit an error
                 if error != nil {
                     print(error!.localizedDescription)
                     return

@@ -16,6 +16,8 @@ class WavyCellTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        eventNameLabel.textColor = .white
+        dateLabel.textColor = .white
     }
 
 
