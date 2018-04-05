@@ -42,17 +42,12 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImag
         
         let eventName = textField.text!
         let storageRef = AppData.sharedInstance.storageNode.child(eventName).child(eventName + ".png")
-        
-        
-        
-        
-        
+
         storageRef.putData(uploadData!, metadata: nil) { (imgMetadata, error) in
             
             if error != nil {
                 print(error?.localizedDescription as Any)
             }
-            
             
             print(imgMetadata as Any)
             
@@ -61,8 +56,6 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImag
             DispatchQueue.main.async {
                 let wavyEvent = WavyEvent.init(name: eventName, key: eventName + "|" + self.datePicker.date.description, date: dateStr, eventImageURL: imgMetadata?.downloadURL()?.absoluteString, guests: nil)
                 EventsManager.saveEvent(event: wavyEvent)
-                
-               
                 group.leave()
             }
 
@@ -71,9 +64,6 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImag
             })
             
         }
-        
-        
-        
     }
     
     @IBAction func addImageAction(_ sender: UIButton) {
