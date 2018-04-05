@@ -37,8 +37,9 @@ class EventsManager: NSObject {
                 let eventName = event["eventNameKey"] as! String
                 let eventDate = event["eventDateKey"] as! String
                 let eventKey = event["idKey"] as! String
+                let eventImageURL = event["imageURL"] as! String
                 
-                let readEvent = WavyEvent(name: eventName, key: eventKey, date: eventDate, eventImageURL: nil, guests: nil)
+                let readEvent = WavyEvent(name: eventName, key: eventKey, date: eventDate, eventImageURL: eventImageURL, guests: nil)
                 
                 AppData.sharedInstance.eventsArr.append(readEvent)
             }

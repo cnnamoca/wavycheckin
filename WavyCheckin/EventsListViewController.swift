@@ -29,7 +29,7 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .black
-
+        
         addRefresh()
         
         if Auth.auth().currentUser == nil {
@@ -105,7 +105,7 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
             self.delegate = guestVC
             self.delegate?.loadGuests(event: eventName)
         }
-
+        
     }
     
     //TABLEVIEW DELEGATE METHODS
@@ -121,20 +121,11 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         cell.dateLabel.text = eventsArr[indexPath.row].date
         
         cell.backgroundImageView.image = UIImage(named: "wavygray")
-        cell.backgroundImageView.clipsToBounds = true
-        cell.backgroundImageView.contentMode = .scaleAspectFill
-        
-        //add separator thickness
-//        let additionalSeparatorThickness = CGFloat(15)
-//        let separatorFrame = CGRect(x: 0, y: cell.frame.height - additionalSeparatorThickness, width: cell.frame.size.width, height: additionalSeparatorThickness)
-//        let additionalSeparator = UIView(frame: separatorFrame)
-//        additionalSeparator.backgroundColor = .black
-//        cell.addSubview(additionalSeparator)
         
         let wavyEvent = eventsArr[indexPath.row]
         if let eventImageURL = wavyEvent.eventImageURL {
-            let url = URL(fileURLWithPath: eventImageURL)
-            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+            let url = URL(string: eventImageURL)
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
                 
                 if error != nil {
                     print(error!.localizedDescription)
@@ -142,15 +133,15 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
                 }
                 
                 DispatchQueue.main.async {
-                  cell.backgroundImageView.image = UIImage(data: data!)
+                    cell.backgroundImageView.image = UIImage(data: data!)
                 }
 
-                
-            })
+            }).resume()
             
         }
         
-        
+        cell.backgroundImageView.clipsToBounds = true
+        cell.backgroundImageView.contentMode = .scaleAspectFill
         return cell
     }
     
