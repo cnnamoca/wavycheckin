@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol EventsDelegate {
     func didFinishUpdates()
@@ -20,6 +21,7 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImag
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var selectedImageView: UIImageView!
     var delegate: EventsDelegate?
+    var metadata: StorageMetadata!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +37,43 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImag
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let dateStr = formatter.string(from: datePicker.date)
-        let wavyEvent = WavyEvent.init(name: textField.text, key: textField.text! + "|" + datePicker.date.description, date: dateStr, eventImageURL: nil, guests: nil)
-        EventsManager.saveEvent(event: wavyEvent)
         
-        DispatchQueue.main.async {
-            self.delegate?.didFinishUpdates()
+        let uploadData = UIImagePNGRepresentation(selectedImageView.image!)
+        
+        let eventName = textField.text!
+        let storageRef = AppData.sharedInstance.storageNode.child(eventName).child(eventName + ".png")
+        
+        
+        
+        
+        
+        storageRef.putData(uploadData!, metadata: nil) { (imgMetadata, error) in
+            
+            if error != nil {
+                print(error?.localizedDescription as Any)
+            }
+            
+            
+            print(imgMetadata as Any)
+            
+            let group = DispatchGroup()
+            group.enter()
+            DispatchQueue.main.async {
+                let wavyEvent = WavyEvent.init(name: eventName, key: eventName + "|" + self.datePicker.date.description, date: dateStr, eventImageURL: imgMetadata?.downloadURL()?.absoluteString, guests: nil)
+                EventsManager.saveEvent(event: wavyEvent)
+                
+               
+                group.leave()
+            }
+
+            group.notify(queue: .main, execute: {
+                self.dismiss(animated: true, completion:  self.delegate?.didFinishUpdates)
+            })
+            
         }
         
-        dismiss(animated: true, completion: nil)
+        
+        
     }
     
     @IBAction func addImageAction(_ sender: UIButton) {

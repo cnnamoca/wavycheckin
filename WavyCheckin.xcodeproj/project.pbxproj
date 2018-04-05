@@ -12,10 +12,10 @@
 		E615CEFC203228E900521F80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615CEFB203228E900521F80 /* ViewController.swift */; };
 		E615CEFF203228E900521F80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E615CEFD203228E900521F80 /* Main.storyboard */; };
 		E615CF02203228E900521F80 /* WavyCheckin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E615CF00203228E900521F80 /* WavyCheckin.xcdatamodeld */; };
-		E615CF04203228E900521F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E615CF03203228E900521F80 /* Assets.xcassets */; };
 		E615CF07203228E900521F80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E615CF05203228E900521F80 /* LaunchScreen.storyboard */; };
 		E615CF0F20323CC200521F80 /* EventsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E615CF0E20323CC200521F80 /* EventsList.storyboard */; };
 		E61B53EC204E77E100B03CEE /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61B53EB204E77E100B03CEE /* AppData.swift */; };
+		E626AC3D2076ABBD005CF8E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E626AC3C2076ABBD005CF8E0 /* Assets.xcassets */; };
 		E62DE0A6203805EB00CE418E /* GuestList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E62DE0A5203805EB00CE418E /* GuestList.storyboard */; };
 		E62DE0A8203810F100CE418E /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DE0A7203810F100CE418E /* EventsListViewController.swift */; };
 		E62DE0B0203F313500CE418E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DE0AF203F313500CE418E /* User.swift */; };
@@ -35,11 +35,11 @@
 		E615CEFB203228E900521F80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E615CEFE203228E900521F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E615CF01203228E900521F80 /* WavyCheckin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WavyCheckin.xcdatamodel; sourceTree = "<group>"; };
-		E615CF03203228E900521F80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E615CF06203228E900521F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E615CF08203228E900521F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E615CF0E20323CC200521F80 /* EventsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsList.storyboard; sourceTree = "<group>"; };
 		E61B53EB204E77E100B03CEE /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		E626AC3C2076ABBD005CF8E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = WavyCheckin/Assets.xcassets; sourceTree = "<group>"; };
 		E62DE0A5203805EB00CE418E /* GuestList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GuestList.storyboard; sourceTree = "<group>"; };
 		E62DE0A7203810F100CE418E /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		E62DE0AF203F313500CE418E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -84,6 +84,7 @@
 		E615CEED203228E900521F80 = {
 			isa = PBXGroup;
 			children = (
+				E626AC3C2076ABBD005CF8E0 /* Assets.xcassets */,
 				E67D30B620448960008502E2 /* GoogleService-Info.plist */,
 				E615CEF8203228E900521F80 /* WavyCheckin */,
 				E615CEF7203228E900521F80 /* Products */,
@@ -109,7 +110,6 @@
 				E62DE0AA2038111600CE418E /* EventsList */,
 				E62DE0AB2038114E00CE418E /* GuestList */,
 				E62DE0AE2038117400CE418E /* Firebase */,
-				E615CF03203228E900521F80 /* Assets.xcassets */,
 				E615CF05203228E900521F80 /* LaunchScreen.storyboard */,
 				E615CF08203228E900521F80 /* Info.plist */,
 				E615CF00203228E900521F80 /* WavyCheckin.xcdatamodeld */,
@@ -227,10 +227,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E615CF07203228E900521F80 /* LaunchScreen.storyboard in Resources */,
-				E615CF04203228E900521F80 /* Assets.xcassets in Resources */,
 				E615CEFF203228E900521F80 /* Main.storyboard in Resources */,
 				E62DE0A6203805EB00CE418E /* GuestList.storyboard in Resources */,
 				E615CF0F20323CC200521F80 /* EventsList.storyboard in Resources */,
+				E626AC3D2076ABBD005CF8E0 /* Assets.xcassets in Resources */,
 				E67D30B720448960008502E2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +356,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -413,6 +415,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -463,7 +467,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A4AB55CD7DC7A3ADB8B6B032 /* Pods-WavyCheckin.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FBYQCX339P;
 				INFOPLIST_FILE = WavyCheckin/Info.plist;
@@ -479,7 +482,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 550C915C8585EE118966F85D /* Pods-WavyCheckin.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FBYQCX339P;
 				INFOPLIST_FILE = WavyCheckin/Info.plist;

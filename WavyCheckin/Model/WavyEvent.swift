@@ -15,7 +15,7 @@ struct WavyEvent {
     let name: String!
     let key: String!
     let date: String!
-    let eventImageURL: String?
+    let eventImageURL: String!
     let guests: [DataSnapshot]!    
     
 }
