@@ -120,8 +120,6 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         cell.eventNameLabel.text = eventsArr[indexPath.row].name
         cell.dateLabel.text = eventsArr[indexPath.row].date
         
-        cell.backgroundImageView.image = UIImage(named: "wavygray")
-        
         let wavyEvent = eventsArr[indexPath.row]
         if let eventImageURL = wavyEvent.eventImageURL {
             let url = URL(string: eventImageURL)
@@ -129,13 +127,13 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
                 
                 if error != nil {
                     print(error!.localizedDescription)
+                    cell.backgroundImageView.image = UIImage(named: "wavygray")
                     return
                 }
-                
+              
                 DispatchQueue.main.async {
                     cell.backgroundImageView.image = UIImage(data: data!)
                 }
-
             }).resume()
             
         }
