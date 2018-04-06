@@ -21,7 +21,6 @@ class AddEventPopUpViewController: UIViewController, UITextFieldDelegate, UIImag
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var selectedImageView: UIImageView!
     var delegate: EventsDelegate?
-    var metadata: StorageMetadata!
     
     override func viewDidLoad() {
         super.viewDidLoad()
