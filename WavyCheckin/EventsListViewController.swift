@@ -21,6 +21,7 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     var wavyCell = WavyCellTableViewCell()
     var eventName = String()
     var delegate: GuestsDelegate?
+    let imageCache = NSCache<AnyObject, UIImage>()
     
     @IBOutlet weak var addEventButton: UIBarButtonItem!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -122,20 +123,30 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
         
         let wavyEvent = eventsArr[indexPath.row]
         if let eventImageURL = wavyEvent.eventImageURL {
-            let url = URL(string: eventImageURL)
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                
-                if error != nil {
-                    print(error!.localizedDescription)
-                    cell.backgroundImageView.image = UIImage(named: "wavygray")
-                    return
-                }
-              
-                DispatchQueue.main.async {
-                    cell.backgroundImageView.image = UIImage(data: data!)
-                }
-            }).resume()
             
+            //check cache for image first
+            if let cachedImage = self.imageCache.object(forKey: eventImageURL as AnyObject) {
+                cell.backgroundImageView.image = cachedImage
+            } else {
+                let url = URL(string: eventImageURL)
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    
+                    if error != nil {
+                        print(error!.localizedDescription)
+                        cell.backgroundImageView.image = UIImage(named: "wavygray")
+                        return
+                    }
+                    
+                    DispatchQueue.main.async {
+                        
+                        if let downloadedImage = UIImage(data: data!) {
+                            self.imageCache.setObject(downloadedImage, forKey: eventImageURL as AnyObject)
+                            cell.backgroundImageView.image = downloadedImage
+                        }
+                        //cell.backgroundImageView.image = UIImage(data: data!)
+                    }
+                }).resume()
+            }
         }
         
         cell.backgroundImageView.clipsToBounds = true
