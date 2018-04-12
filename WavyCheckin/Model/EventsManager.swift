@@ -70,5 +70,14 @@ class EventsManager: NSObject {
             print(error.localizedDescription)
         }
     }
+    
+    class func deleteEvent(event: String) {
+        AppData.sharedInstance.eventsNode.child(event).removeValue { (error, ref) in
+            if error != nil {
+                print(error?.localizedDescription as Any)
+                return
+            }
+        }
+    }
      
 }
