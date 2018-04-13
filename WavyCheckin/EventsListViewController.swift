@@ -159,28 +159,31 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        if Auth.auth().currentUser != nil {
+            return true
+        } else {
+            return false
+        }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if Auth.auth().currentUser != nil {
-            if editingStyle == .delete {
-                
-                let group = DispatchGroup()
-                group.enter()
-                if let cell = tableView.cellForRow(at: indexPath) as? WavyCellTableViewCell {
-                    DispatchQueue.main.async {
-                        EventsManager.deleteEvent(event: cell.eventNameLabel.text!)
-                        group.leave()
-                    }
+        if editingStyle == .delete {
+            
+            let group = DispatchGroup()
+            group.enter()
+            if let cell = tableView.cellForRow(at: indexPath) as? WavyCellTableViewCell {
+                DispatchQueue.main.async {
+                    EventsManager.deleteEvent(event: cell.eventNameLabel.text!)
+                    EventsManager.deletePhoto(eventPhoto: cell.eventNameLabel.text!)
+                    group.leave()
                 }
-                
-                group.notify(queue: .main, execute: {
-                    self.didFinishUpdates()
-                })
             }
+            
+            group.notify(queue: .main, execute: {
+                self.didFinishUpdates()
+            })
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

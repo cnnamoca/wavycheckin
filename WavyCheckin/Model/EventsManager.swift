@@ -79,5 +79,14 @@ class EventsManager: NSObject {
             }
         }
     }
+    
+    class func deletePhoto(eventPhoto: String) {
+        AppData.sharedInstance.storageNode.child(eventPhoto).child(eventPhoto + ".png").delete { (error) in
+            if error != nil {
+                print(error?.localizedDescription as Any)
+                return
+            }
+        }
+    }
      
 }
