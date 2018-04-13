@@ -72,10 +72,29 @@ class EventsManager: NSObject {
     }
     
     class func deleteGuest(event: String, guestName: String) {
-        AppData.sharedInstance.eventsNode.child(event).child("Guests").child(guestName).removeValue { (error, ref) in
-            if error != nil {
-                print(error?.localizedDescription as Any)
-                return
+        AppData.sharedInstance.eventsNode.child(event).child("Guests").observeSingleEvent(of: .value) { (snapshot) in
+
+            guard let value = snapshot.value as? NSDictionary else {
+                return}
+
+            for any in value.allValues{
+                
+                
+                let guest: [String : Any] = any as! Dictionary <String, Any>
+                let guestNameValue = guest["guestNameKey"] as! String
+            
+                if guestNameValue == guestName {
+                    print(value.allKeys(for: any))
+                    let keysArr = value.allKeys(for: any)
+                    let string = keysArr[0] as! String
+                    AppData.sharedInstance.eventsNode.child(event).child("Guests").child(string).removeValue(completionBlock: { (error, ref) in
+                        if error != nil {
+                            print(error?.localizedDescription as Any)
+                            return
+                        }
+                    })
+                }
+
             }
         }
     }

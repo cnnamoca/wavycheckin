@@ -10,13 +10,30 @@ import UIKit
 
 class GuestlistTableViewController: UITableViewController, GuestsDelegate {
     
+    var selectedEvent = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     func loadGuests(event: String) {
         EventsManager.loadGuests(event: event)
+        selectedEvent = event
         tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            if let cell = tableView.cellForRow(at: indexPath) {
+                EventsManager.deleteGuest(event: selectedEvent, guestName: (cell.textLabel?.text)!)
+            }
+            
+        }
     }
     
     @IBAction func backAction(_ sender: UIBarButtonItem) {
