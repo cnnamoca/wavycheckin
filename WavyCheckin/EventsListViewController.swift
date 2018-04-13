@@ -75,11 +75,16 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
     
     func didFinishUpdates() {
         DispatchQueue.main.async {
+            EventsManager.loadEvents()
             self.eventsArr = AppData.sharedInstance.eventsArr
             self.tableView.reloadData()
-            if self.eventsArr.count > 0 {
+            if self.eventsArr.count == 0 {
+                self.label.isHidden = false
+                self.label.text = "🌊 No WAVY Events Right Now 🌊"
+            } else if self.eventsArr.count > 0 {
                 self.label.isHidden = true
             }
+            
         }
     }
     
