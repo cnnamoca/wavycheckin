@@ -71,6 +71,15 @@ class EventsManager: NSObject {
         }
     }
     
+    class func deleteGuest(event: String, guestName: String) {
+        AppData.sharedInstance.eventsNode.child(event).child("Guests").child(guestName).removeValue { (error, ref) in
+            if error != nil {
+                print(error?.localizedDescription as Any)
+                return
+            }
+        }
+    }
+    
     class func deleteEvent(event: String) {
         AppData.sharedInstance.eventsNode.child(event).removeValue { (error, ref) in
             if error != nil {
