@@ -18,11 +18,17 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
         addRefresh()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        loadGuests(event: selectedEvent)
+    }
+    
     func loadGuests(event: String) {
-        selectedEvent = event
-        EventsManager.loadGuests(event: selectedEvent)
-        guestsArr = AppData.sharedInstance.eventGuests
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.selectedEvent = event
+            EventsManager.loadGuests(event: self.selectedEvent)
+            self.guestsArr = AppData.sharedInstance.eventGuests
+            self.tableView.reloadData()
+        }
     }
     
     private func addRefresh() {
@@ -39,10 +45,6 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
         refreshControl?.endRefreshing()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        loadGuests(event: selectedEvent)
-    }
-    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -56,6 +58,7 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
                 
                 DispatchQueue.main.async {
                     EventsManager.deleteGuest(event: self.selectedEvent, guestName: (cell.textLabel?.text)!)
+                    AppData.sharedInstance.eventGuests.remove(at: indexPath.row)
                     group.leave()
                 }
                 
@@ -78,12 +81,12 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppData.sharedInstance.eventGuests.count
+        return guestsArr.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath)
-        cell.textLabel?.text = AppData.sharedInstance.eventGuests[indexPath.row].description
+        cell.textLabel?.text = guestsArr[indexPath.row].description
         cell.textLabel?.textAlignment = .center
         
         return cell

@@ -73,11 +73,11 @@ class EventsManager: NSObject {
     
     class func deleteGuest(event: String, guestName: String) {
         AppData.sharedInstance.eventsNode.child(event).child("Guests").observeSingleEvent(of: .value) { (snapshot) in
-
+            
             guard let value = snapshot.value as? NSDictionary else {
                 return}
 
-            for any in value.allValues{
+            for any in value.allValues {
                 
                 
                 let guest: [String : Any] = any as! Dictionary <String, Any>
@@ -94,7 +94,6 @@ class EventsManager: NSObject {
                         }
                     })
                 }
-
             }
         }
     }
