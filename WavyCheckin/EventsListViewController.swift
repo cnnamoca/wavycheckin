@@ -148,7 +148,6 @@ class EventsListsViewController: UITableViewController, EventsDelegate {
                             self.imageCache.setObject(downloadedImage, forKey: eventImageURL as AnyObject)
                             cell.backgroundImageView.image = downloadedImage
                         }
-                        //cell.backgroundImageView.image = UIImage(data: data!)
                     }
                 }).resume()
             }

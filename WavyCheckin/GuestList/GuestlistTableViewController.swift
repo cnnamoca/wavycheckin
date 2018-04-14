@@ -62,7 +62,6 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
                     group.leave()
                 }
                 
-                
                 group.notify(queue: .main, execute: {
                     self.loadGuests(event: self.selectedEvent)
                 })
