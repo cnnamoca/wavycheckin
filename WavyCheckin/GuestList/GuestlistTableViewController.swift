@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class GuestlistTableViewController: UITableViewController, GuestsDelegate {
     
@@ -43,6 +44,34 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
     @objc private func refreshEvents(_ sender: Any) {
         loadGuests(event: selectedEvent)
         refreshControl?.endRefreshing()
+    }
+    
+    @IBAction func addGuest(_ sender: UIBarButtonItem) {
+        let alert = SCLAlertView()
+        let txt = alert.addTextField("Guest Name")
+        
+        alert.addButton("Add Guest") {
+            if let guestName = txt.text {
+                let group = DispatchGroup()
+                group.enter()
+                
+                let guestDict: [String : Any] = [
+                    "guestNameKey":guestName
+                ]
+                
+                DispatchQueue.main.async {
+                    AppData.sharedInstance.eventsNode.child(self.selectedEvent).child("Guests").childByAutoId().setValue(guestDict)
+                    group.leave()
+                }
+                
+                group.notify(queue: .main, execute: {
+                    self.loadGuests(event: self.selectedEvent)
+                })
+            }
+        }
+        
+        alert.showEdit("Add Guests", subTitle: "Add Guest Names")
+        
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
