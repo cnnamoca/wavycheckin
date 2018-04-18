@@ -35,9 +35,7 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
             group.leave()
         }
         
-        
         group.notify(queue: .main) {
-            
             self.tableView.reloadData()
         }
         
@@ -62,9 +60,10 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
         let txt = alert.addTextField("Guest Name")
         
         alert.addButton("Add Guest") {
+            let group = DispatchGroup()
+            group.enter()
+            
             if let guestName = txt.text {
-                let group = DispatchGroup()
-                group.enter()
                 
                 let guestDict: [String : Any] = [
                     "guestNameKey":guestName
@@ -95,11 +94,9 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
             let group = DispatchGroup()
             group.enter()
             if let cell = tableView.cellForRow(at: indexPath) {
-                
                 DispatchQueue.main.async {
                     EventsManager.deleteGuest(event: self.selectedEvent, guestName: (cell.textLabel?.text)!)
-                    AppData.sharedInstance.eventGuests.remove(at: indexPath.row)
-                    self.guestsArr.remove(at: indexPath.row)
+                    //AppData.sharedInstance.eventGuests.remove(at: indexPath.row)
                     group.leave()
                 }
                 
