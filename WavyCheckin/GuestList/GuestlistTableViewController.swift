@@ -24,12 +24,23 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
     }
     
     func loadGuests(event: String) {
+        
+        let group = DispatchGroup()
+        group.enter()
+        
         DispatchQueue.main.async {
             self.selectedEvent = event
             EventsManager.loadGuests(event: self.selectedEvent)
-            self.guestsArr = AppData.sharedInstance.eventGuests
+            self.guestsArr = AppData.sharedInstance.eventGuests.sorted()
+            group.leave()
+        }
+        
+        
+        group.notify(queue: .main) {
+            
             self.tableView.reloadData()
         }
+        
     }
     
     private func addRefresh() {
@@ -81,13 +92,14 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
+            let group = DispatchGroup()
+            group.enter()
             if let cell = tableView.cellForRow(at: indexPath) {
-                let group = DispatchGroup()
-                group.enter()
                 
                 DispatchQueue.main.async {
                     EventsManager.deleteGuest(event: self.selectedEvent, guestName: (cell.textLabel?.text)!)
                     AppData.sharedInstance.eventGuests.remove(at: indexPath.row)
+                    self.guestsArr.remove(at: indexPath.row)
                     group.leave()
                 }
                 
