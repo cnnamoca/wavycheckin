@@ -18,7 +18,7 @@ class GuestlistTableViewController: UITableViewController, GuestsDelegate {
         super.viewDidLoad()
         addRefresh()
     }
-    
+        
     override func viewDidAppear(_ animated: Bool) {
         loadGuests(event: selectedEvent)
     }
